@@ -1,0 +1,79 @@
+{% extends "ecloreuserBundle::page_lambda.html.twig" %}
+
+{% block title %}Espace membre{% endblock %}
+
+{%set color='vert'%}
+{%set first='Mon Éclore'%}
+{%set second='Espace personnel'%}
+
+{% block content %}
+{%include "ecloreuserBundle::menu_user.html.twig"%}
+<div class="coldroite">
+
+<br>
+{% set pending = app.user.young.PAByStatus('PENDING') %}
+{% set validated = app.user.young.PAByStatus('VALIDATED') %}
+{% set rejected = app.user.young.PAByStatus('REJECTED') %}
+{% set terminated = app.user.young.PAByStatus('TERMINATED') %}
+{% set marked = app.user.young.PAByStatus('MARKED') %}
+{%if pending|length >0%}
+Candidatures en attente de réponse:
+    <ul>
+    {% for pa in pending %}
+        <li><a href="{{ path('young_manage', { 'id': pa.id }) }}">{{pa.project}} ({{pa.project.association}})</a></li>
+    {% endfor %}
+    </ul>
+{%else%}
+    Pas de candidatures en attente de réponse.
+{%endif%}
+<br>
+{%if terminated|length >0%}
+    Projets à noter:
+        <ul>
+        {% for pa in terminated %}
+           <li><a href="{{ path('young_manage', { 'id': pa.id }) }}">{{pa.project}}</a></li>
+        {% endfor %}
+        </ul>
+{%else%}
+    Pas de projets en attente de notation de ta part.
+{%endif%}
+<br>
+{%if marked|length >0%}
+    Projets terminés:
+        <ul>
+        {% for pa in marked %}
+           <li><a href="{{ path('young_manage', { 'id': pa.id }) }}">{{pa.project}}</a></li>
+        {% endfor %}
+        </ul>
+{%else%}
+    Pas de projets terminés.
+{%endif%}
+<br>
+{%if validated|length >0%}
+    Candidatures validées:
+        <ul>
+        {% for pa in validated %}
+            <li><a href="{{ path('young_manage', { 'id': pa.id }) }}">{{pa.project}}</a></li>
+        {% endfor %}
+        </ul>
+{%else%}
+    Pas de candidatures validées.
+{%endif%}
+
+
+<br>
+{%if rejected|length >0%}
+    Candidatures rejetées:
+        <ul>
+        {% for pa in rejected %}
+           <li><a href="{{ path('young_manage', { 'id': pa.id }) }}">{{pa.project}}</a></li>
+        {% endfor %}
+        </ul>
+{%else%}
+    Pas de candidatures rejetées.
+{%endif%}
+<br>
+
+</div>
+<div class="clearboth"></div>
+{% endblock %}

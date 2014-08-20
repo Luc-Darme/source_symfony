@@ -1,0 +1,24 @@
+{% extends "ecloreuserBundle::page_lambda.html.twig" %}
+
+{% block title %}Espace membre{% endblock %}
+
+{%set color='vert'%}
+{%set first='Mes projets'%}
+{%set second='Manager ma candidature'%}
+
+{% block content %}
+
+Bienvenue {{app.user.username}} !<br>
+Tu es dans l'espace d'administration de ta candidature au projet {{pa.project}}.
+<br>
+Etat de la candidature: {{pa.status|PAStatus}}
+<br>Derniere communication: {{pa.message}}
+<br>
+Date de dernière modification: {{pa.statusDate|date("d/m/Y")}}
+<br>
+    
+{% if pa.status == "TERMINATED" %}
+{{ form(form) }}
+{%endif%}
+
+{% endblock %}

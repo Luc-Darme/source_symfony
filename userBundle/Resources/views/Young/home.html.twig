@@ -1,0 +1,22 @@
+{% extends "ecloreuserBundle::page_lambda.html.twig" %}
+
+{% block title %}Espace membre{% endblock %}
+
+{%set color='vert'%}
+{%set first='Mon Éclore'%}
+{%set second='Espace personnel'%}
+
+{% block content %}
+{%include "ecloreuserBundle::menu_user.html.twig"%}
+<div class="coldroite">
+
+Tu es dans ton espace membre {{app.user.username}}.
+
+{% for action in timeline_coll %}
+    {{ timeline_render(action) }}<br>
+{% endfor %}
+<br>
+{{timeline_coll|length}} actions in timeline.
+</div>
+<div class="clearboth"></div>
+{% endblock %}

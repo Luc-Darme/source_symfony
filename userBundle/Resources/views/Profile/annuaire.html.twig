@@ -1,0 +1,80 @@
+{% extends "ecloreuserBundle::page_lambda.html.twig" %}
+
+{% block title %}Espace membre{% endblock %}
+
+{%set color='vert'%}
+{%set first='Mon Éclore'%}
+{%set second='Espace personnel'%}
+
+{% block content %}
+{%include "ecloreuserBundle::menu_user.html.twig"%}
+<div class="coldroite">
+Vous êtes dans votre annuaire<br>
+
+{%if contact_not|length>0 %}
+Vos demandes de contact à gérer:
+<ul>
+{% for notif in contact_not %}
+    <li>{{notif.initDate|date('d-m-Y')}} de {{notif.sender}}: {{notif.message}} 
+    <a href="{{path('user_acknowledge_contact', {'id' : notif.id, 'action' : 'ack'})}}">Accepter</a>
+    <a href="{{path('user_acknowledge_contact', {'id' : notif.id, 'action' : 'nack'})}}">Refuser</a>
+    </li>
+{% endfor %}
+</ul>
+{%else%}
+Pas de demandes de contact en attente.
+{%endif%}
+<br>
+
+<br>
+{%if app.user.contacts|length>0 %}
+Vos contacts:
+<br>
+Jeunes:
+<table>
+{%for contact in app.user.getContactsByRole('ROLE_YOUNG') %}
+<tr>
+<td>{{contact}}</td>
+<td>{{contact.mobile}}</td>
+<td>{{contact.email}}</td>
+<td>{{contact.young.institutions|join(', ')}}</td>
+<td><a href="{{path('displayMember', {'id':contact.id})}}">Détails...</a></td>
+<td><a href="{{path('user_removeContact', {'id':contact.id})}}">Supprimer</a></td>
+
+</tr>
+{%endfor%}
+</table>
+<br>
+Membres associatifs:
+<table>
+{%for contact in app.user.getContactsByRole('ROLE_ASSOM') %}
+<tr>
+<td>{{contact}}</td>
+<td>{{contact.mobile}}</td>
+<td>{{contact.email}}</td>
+<td>{{contact.assoM.associations|join(', ')}}</td>
+<td><a href="{{path('displayMember', {'id':contact.id})}}">Détails...</a></td>
+<td><a href="{{path('user_removeContact', {'id':contact.id})}}">Supprimer</a></td>
+</tr>
+{%endfor%}
+</table>
+<br>
+Membres institutionnels:
+<table>
+{%for contact in app.user.getContactsByRole('ROLE_INSTM') %}
+<tr>
+<td>{{contact}}</td>
+<td>{{contact.mobile}}</td>
+<td>{{contact.email}}</td>
+<td>{{contact.instM.institutions|join(', ')}}</td>
+<td><a href="{{path('displayMember', {'id':contact.id})}}">Détails...</a></td>
+<td><a href="{{path('user_removeContact', {'id':contact.id})}}">Supprimer</a></td>
+</tr>
+{%endfor%}
+</table>
+{%else%}
+Pas de contacts dans l'annuaire.
+{%endif%}
+</div>
+<div class="clearboth"></div>
+{% endblock %}

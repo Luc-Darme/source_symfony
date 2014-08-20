@@ -1,0 +1,14 @@
+{% extends "ecloreuserBundle::page_lambda.html.twig" %}
+
+{% block title %}Espace membre{% endblock %}
+
+{%set color='vert'%}
+{%set first='Mon Éclore'%}
+{%set second='Espace personnel'%}
+
+{% block content %}
+Page de l'association {{asso.associationName}}.<br>
+<img src="{{app.request.basepath}}/{{ asso.getHeadshotWebPath }}" width='100'><br>
+Description: {{asso.description}}.<br>
+Location: {{asso.location}}.<br>
+{% endblock %}

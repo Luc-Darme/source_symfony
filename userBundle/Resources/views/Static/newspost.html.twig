@@ -1,0 +1,20 @@
+{% extends "ecloreuserBundle::page_lambda.html.twig" %}
+
+{% block title %}Le réseau Eclore{% endblock %}
+{%set color='vert'%}
+{%set first='Mon Éclore'%}
+{%set second='Espace personnel'%}
+
+{% block content %}
+Actualité:{{post.title}}
+<br>
+{{post.header}}
+<br>
+{{post.publishDate|date("m-d-Y")}}
+<br>
+{{post.text}}
+<br>
+{%for pic in post.pictures %}
+<img src="{{app.request.basepath}}/{{ pic.getWebPath }}" width='100'>
+{%endfor%}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "ecloreuserBundle::page_lambda.html.twig" %}
+
+{% block title %}Espace membre{% endblock %}
+
+{%set color='vert'%}
+{%set first='Mon Éclore'%}
+{%set second='Espace personnel'%}
+
+{% block content %}
+{%include "ecloreuserBundle::menu_user.html.twig"%}
+<div class="coldroite">
+Vos recommandations sont listées ici. <br>
+{%if app.user.hasRole('ROLE_YOUNG')%}
+Elles sont visibles par les responsables des projets auxquels vous postulez.<br>
+{%endif%}
+
+
+{%if recomm|length>0 %}
+    <table>
+
+    {% for rec in recomm %}
+    <tr>
+    <td>{{rec.sender}}</td>
+    <td>{{rec.project}}</td>
+    <td>{{rec.initDate|date('m/d/Y')}}</td>
+    <td>{{rec.message}}</td>
+    </tr>
+    {%endfor%}
+    </table>
+{%else%}
+    Pas de recommandations.
+{%endif%}
+</div>
+<div class="clearboth"></div>
+{% endblock %}
