@@ -28,6 +28,7 @@ Statut du projet:
 {%if not proj.enabled%}
     Ce projet est en attente de validation de la part des administrateurs. Vous serez averti de sa validation.
 {%else%}
+
     {%if proj.isFinished %}
     Terminé.
     {%elseif not proj.isFinished and proj.isStarted %}
@@ -35,7 +36,8 @@ Statut du projet:
     {%else%}
     Publié.
     {%endif%}
-
+    <br>
+ <a href="{{ path('assom_editProject', { 'id': proj.id }) }}"> Modifier ce projet </a>
     <br>
     Statut sur les participants: 
     {%if not proj.isFinished%}

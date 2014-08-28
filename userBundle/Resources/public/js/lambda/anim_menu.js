@@ -8,7 +8,7 @@ var menu2 = $("div[class*='menu'] ul li")[1];
 var menu3 = $("div[class*='menu'] ul li")[2];
 //var menu4 = $("div[class*='menu'] ul li")[3];
 
-$.data(menu1, 'taillef', {l: 11.4});
+$.data(menu1, 'taillef', {l: 8.9});
 $.data(menu2, 'taillef', {l: 8.9});
 $.data(menu3, 'taillef', {l: 8.9});
 //$.data(menu4, 'taillef', {l: 11.4});

@@ -14,7 +14,7 @@ class StaticController extends Controller
         $repository = $em->getRepository('ecloreuserBundle:NewsPost');
         $posts = $repository->findAll();
             
-        return $this->render('ecloreuserBundle::index_simple.html.twig', array('projs'=>$projs, 'posts'=>$posts));
+        return $this->render('ecloreuserBundle::index.html.twig', array('projs'=>$projs, 'posts'=>$posts));
     }
     
     public function displayNewsPostAction($id)

@@ -8,8 +8,9 @@
 
 {% block content %}
 {%include "ecloreuserBundle::menu_user.html.twig"%}
-<div class="coldroite">
-Bienvenue {{app.user.username}} !<br>
+<div class="coldroite home">
+    <h1> Bienvenue <span class="subject">{{app.user.username}}</span> ! </h1>
+
 Vous êtes dans votre espace membre. Vous pouvez voir le parcours des jeunes qui sont sous votre tutelle.  <br>
 <br>Vos institutions:
 <ul>
@@ -25,13 +26,17 @@ Vous êtes dans votre espace membre. Vous pouvez voir le parcours des jeunes qui
     {% endif %}
 {% endfor %}
 </ul>
-<br>
 
-{% for action in timeline_coll %}
-    {{ timeline_render(action) }}<br>
-{% endfor %}
+<h2> Actualités récentes </h2>
+    <ul>
+    {% for action in timeline_coll %}
+        <li>{{ timeline_render(action) }}</li>
+    {% endfor %}
+    </ul>
 <br>
-{{timeline_coll|length}} actions in timeline.
+{% if timeline_coll|length == 0 %}
+ Pas d'actualités.
+ {%endif%}
 </div>
 <div class="clearboth"></div>
 {% endblock %}

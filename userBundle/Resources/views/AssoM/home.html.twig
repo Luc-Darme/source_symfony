@@ -19,7 +19,9 @@
     {% endfor %}
     </ul>
 <br>
-{{timeline_coll|length}} actions in timeline.
+{% if timeline_coll|length == 0 %}
+ Pas d'actualités.
+ {%endif%}
 </div>
 <div class="clearboth"></div>
 {% endblock %}

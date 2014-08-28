@@ -24,4 +24,4 @@ eclore\userBundle\Entity\Project:
             - NotNull: { message: "Veuillez choisir une ville" }
         required:
             - GreaterThan:
-                value: 0 : { message: "Le nombre de jeunes requis doit être positif!" }
+                value: 0 : { message: "Le nombre de jeunes souhaité doit être positif!" }

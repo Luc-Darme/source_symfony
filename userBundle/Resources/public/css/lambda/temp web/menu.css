@@ -39,6 +39,7 @@ z-index:300;
  
 .menu li
 {
+    width:15%;
 	padding: 0 0.1em 0 0.1em;
     height:2.3em;
     float:left;
@@ -119,18 +120,4 @@ left:0;
 width:100%;
 z-index : 30;
 
-}
-
-
- 
- @media screen and (min-width: 1400px) {
-	.menu li{
-    width:200px;
-	}
-}
-@media screen and (max-width: 1400px) {
-	.menu li{
-    width:150px;
-	font-size:0.8em;
-	}
 }

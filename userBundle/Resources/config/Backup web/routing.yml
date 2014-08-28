@@ -158,10 +158,10 @@ displayMember:
 ecloreuser_homepage:
     pattern:  /
     defaults: { _controller: ecloreuserBundle:Static:index }
-
+    
 ecloreuser_leReseau:
     pattern:  /le-reseau
-    defaults: { _controller: FrameworkBundle:Template:template, template:'ecloreuserBundle:Static:le-reseau.html.twig' }
+    defaults: { _controller: FrameworkBundle:Template:template, template:'ecloreuserBundle:Static:en-construction.html.twig' }
     
 ecloreuser_statuts:
     pattern:  /nos-statuts
@@ -204,7 +204,7 @@ displayAsso:
         id:  \d+
         
 displayNewsPost:
-    pattern:  /Actualite/{id}
+    pattern:  /display-newspost/{id}
     defaults: {  _controller: ecloreuserBundle:Static:displayNewsPost}
     requirements:
         id:  \d+

@@ -1,16 +1,14 @@
 
 				<ul>
 					<li> <h3> <a href="{{path('ecloreuser_homepage')}}">Accueil</a> </h3> 
-						  <a href="{{path('ecloreuser_leReseau')}}" class="sousmenu"> <span>Qui sommes nous ? </span> </a>  
-						  <a href="{{path('ecloreuser_leReseau')}}" class="sousmenu"><span>Eclore, mode d'emploi</span></a>  
+						  <a href="{{path('ecloreuser_leReseau')}}" class="sousmenu"> <span>Qui sommes nous ? </span> </a>   
 						  <a href="mailto:contact@reseau-eclore.org" class="sousmenu"><span>Nous contacter</span> </a>   </li> 
 					<li> <h3> <a href="#">Les projets</a>   </h3>
-						<!--  <a href="{{path('ecloreuser_rechercherProjet')}}" class="sousmenu"> <span>Rechercher un projet</span></a> -->
-						<a href="{{path('ecloreuser_leReseau')}}" class="sousmenu"> <span>Rechercher un projet</span></a>
+						 <a href="{{path('ecloreuser_rechercherProjet')}}" class="sousmenu"> <span>Rechercher un projet</span></a>
 						 <a href="{{path('assom_registerProject')}}" class="sousmenu"> <span>Proposer un projet</span></a>
 					</li>
 			        <li><h3> <a href="#">Le réseau</a>  </h3>
-						 <a href="{{path('ecloreuser_leReseau')}}" class="sousmenu"><span>Les actualités</span></a> 
+						 <a href="{{path('displayNewsPost' , {'id': 1})}}" class="sousmenu"><span>Les actualités</span></a> 
 						 <a href="{{path('ecloreuser_leReseau')}}" class="sousmenu"><span>Vie du réseau</span></a> 
 						 <a href="{{path('ecloreuser_leReseau')}}" class="sousmenu"><span>Témoignages </span></a> 
 					</li>

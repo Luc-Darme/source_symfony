@@ -8,15 +8,21 @@
 
 {% block content %}
 {%include "ecloreuserBundle::menu_user.html.twig"%}
-<div class="coldroite">
+<div class="coldroite home">
+    <h1> Bienvenue <span class="subject">{{app.user.username}}</span> ! </h1>
 
-Tu es dans ton espace membre {{app.user.username}}.
+Tu es dans ton espace membre.
 
-{% for action in timeline_coll %}
-    {{ timeline_render(action) }}<br>
-{% endfor %}
+<h2> Actualités récentes </h2>
+    <ul>
+    {% for action in timeline_coll %}
+        <li>{{ timeline_render(action) }}</li>
+    {% endfor %}
+    </ul>
 <br>
-{{timeline_coll|length}} actions in timeline.
+{% if timeline_coll|length <1 %}
+ Pas d'actualités.
+ {%endif%}
 </div>
 <div class="clearboth"></div>
 {% endblock %}

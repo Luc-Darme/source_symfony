@@ -35,12 +35,12 @@ protected $container;
             ->add('description' , 'textarea', array('label' => 'Décrivez plus précisement le projet :'))
             ->add('association', 'entity', array('class' => 'eclore\userBundle\Entity\Association',
             'choices' => $data))
-           // ->add('labels', 'entity', array('class' => 'eclore\userBundle\Entity\ProjectLabels'))
+            ->add('labels', 'entity', array('class' => 'eclore\userBundle\Entity\ProjectLabels', 'label' => ' Catégorie :'))
             ->add('startDate', 'date', array( 'widget' => 'choice', 'years'=>range((int)date("Y"), (int)date("Y")+50) , 'label' => ' Date de début du projet'))
             ->add('endDate', 'date', array( 'widget' => 'choice', 'years'=>range((int)date("Y"), (int)date("Y")+50) , 'label' => ' Date de fin du projet'))
             ->add('address', 'text', array('attr' => array('class'=>'addressPickerInput') , 'label' => "Adresse de l'association") )
-           //  ->add('required')   
-          //  ->add('investmentRequired', 'choice', array('choices'=>$this->container->getParameter('investmentRequired')))
+             ->add('required', 'text', array('label' => ' Nombre souhaité de jeunes :'))  
+            ->add('investmentRequired', 'choice', array('choices'=>$this->container->getParameter('investmentRequired'), 'label' => ' Investissement nécessaire :'))
             ->add('projectApplications', 'entity', array('class'=>'ecloreuserBundle:ProjectApplication',
             'property'=>'id', 'multiple'=>true, 'required'=>false))
             ->add('lat', 'hidden', array('attr' => array('class'=>'addressPickerLat')))

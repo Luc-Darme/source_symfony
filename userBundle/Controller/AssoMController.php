@@ -218,7 +218,7 @@ class AssoMController extends Controller
                 $this->getDoctrine()->getManager()->flush();
                 $this->get('session')->getFlashBag()->add(
                 'notice',
-                'L\'association a été correctement mise à jour!');
+                'Le projet a été correctement mis à jour!');
                 return $this->redirect($this->generateUrl('assom_manageProject', 
                 array('id'=>$proj->getId())));
             }

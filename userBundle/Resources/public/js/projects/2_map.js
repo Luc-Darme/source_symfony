@@ -74,20 +74,70 @@ function codeAddress(address) {
         });
     setAllMap(map)
     }
-    
+   
+function getDuration(obj){
+return parseInt((obj.end_date - obj.start_date)/86400.0)
+}
+
+function sortJSON(data, key, way) {
+    data.sort(function(a, b) {
+        var x;
+        var y;
+        switch(key){
+            case 'duration':
+                x = getDuration(a);
+                y = getDuration(b);
+                break;
+            case 'association':
+                x = a.association.associationName;
+                y = b.association.associationName;
+                break;
+            default:
+                x = a[key];
+                y = b[key];
+        }
+        if (way === '+' ) { return ((x < y) ? -1 : ((x > y) ? 1 : 0)); }
+        if (way === '-') { return ((x > y) ? -1 : ((x < y) ? 1 : 0)); }
+    });
+    return data
+}
+
+function filterData(data){
+if($("#label_select").val() != null)
+    data = $.grep(data, function(proj, i){return $("#label_select").val().indexOf(proj.labels.id+"") > -1});
+if($("#association_select").val() != null)
+    data = $.grep(data, function(proj, i){return $("#association_select").val().indexOf(proj.association.id+"") > -1});
+   return data
+}
+
+function sortData(data){
+critere = $('#tri').val();
+data = sortJSON(data, critere.substring(0, critere.length-1), critere.charAt(critere.length-1));
+return data
+}
+   
 function displayProjects(data){
+    data = filterData(data)
+    data = sortData(data)
     deleteMarkers()
     $("#results").empty()
     $.each(data, function(idx, obj){
         addMarker(obj)
         start_date = new Date(obj.start_date*1000)
-        $("#results").append("<div class='item' id='"+obj.id+
-        "'>Nom du projet: "+obj.project_name+
-        ", durée:"+parseInt((obj.end_date - obj.start_date)/86400.0)+" jours"+
-        ", début le "+start_date.toLocaleDateString()+
-        " à "+obj.city+
-        ".</div>")    
+        $("#results").append(
+        
+        
+        '<ul class="item" id="'+obj.id+'"><li> <div class="wrapper_el_projets"><a href=""  class="expandlink" onclick="return false">'+
+                '<div class="projet_el_liste_haut">'+
+                    '<div class="hautgauche"> <img src='+logoProjet+'></img></div> '+
+                    '<div class="hautdroit"> <h2> <span>'+obj.project_name+'</span>  </h2>'+
+                    '<span class="soustitre"> <span>'+getDuration(obj)+' jours ('+start_date.toLocaleDateString()+
+                    ' - '+end_date.toLocaleDateString()+') </span> <span>'+obj.address+'</span></br>'+
+                    '<span>'+obj.short_description+'</span></div></div><div class="projet_el_liste_bas">'+
+                    '<span>'+obj.description+'</span></div></a></div></li></ul> '
+)    
     });
+    if(data.length==0)$("#results").append('Pas de résultats.');
 }
 
 function populate(id, table, id_select, option){
@@ -98,6 +148,7 @@ function populate(id, table, id_select, option){
 }
 
 $(document).ready(function() {   
+    
     google.maps.event.addDomListener(window, 'load', initialize);
     geocoder = new google.maps.Geocoder();
     var request = $.ajax({
@@ -113,31 +164,19 @@ $(document).ready(function() {
                 populate(obj.labels.id, labels, "#label_select", "<option value="+obj.labels.id+">"+obj.labels.name+"</option>")
                 populate(obj.association.id, associations, "#association_select", "<option value="+obj.association.id+">"+obj.association.associationName+"</option>")
             });
-            displayProjects(data)       
+            displayProjects(data)
+            
             //label selection tool
-            $("#label_select").change(function(){
-                var filteredData = $.grep(objects, function(proj, i){
-                    return $("#label_select").val().indexOf(proj.labels.id+"") > -1
-                });
-                displayProjects(filteredData)
-            });
+            $("#label_select").change(function(){displayProjects(data)});
             
             //association selection tool
-            $("#association_select").change(function(){
-                var filteredData = $.grep(objects, function(proj, i){
-                    return $("#association_select").val().indexOf(proj.association.id+"") > -1
-                });
-                filteredData.sort(function(a,b){})
-                /*Sort function
-                Less than 0: Sort "a" to be a lower index than "b"
- Zero: "a" and "b" should be considered equal, and no sorting performed.
- Greater than 0: Sort "b" to be a lower index than "a".
- */
-                displayProjects(filteredData)
-            });
+            $("#association_select").change(function(){displayProjects(data)});
+            
+            //tri tool
+            $("#tri").change(function(){displayProjects(data)});
             
                 //centrer la carte sur ce projet et ouvrir l'infowindow
-            $("#results div.item ").click( function() {
+            $("#results ul.item ").click( function() {
                 var i = parseInt($(this).attr('id'))
                 map.setCenter(markers[i].getPosition());
                 if(previousOpen != -1){infowindows[previousOpen].close();}
@@ -148,15 +187,19 @@ $(document).ready(function() {
            //showMarkers()
             
             $("#loading").fadeOut()    
-            $("#results").fadeIn()    
-        
+            $("#search_zone").fadeIn()    
+            $("#label_select").chosen();
+            $("#association_select").chosen();
+            $("#tri").data("placeholder","Trier les projets...").chosen();
         });
         
-   // request.fail(function( jqXHR, textStatus ) {
-   //   $('#results').html( "Request failed: " + textStatus+jqXHR.status );
-    //  $("#loading").fadeOut()    
-   //   $("#results").fadeIn()  
-   // });
+        
+
+    request.fail(function( jqXHR, textStatus ) {
+      $('#results').html( "Request failed: " + textStatus+jqXHR.status );
+      $("#loading").fadeOut()    
+      $("#search_zone").fadeIn()  
+    });
     
     $("#loc_submit").click(function(){
         if($("#loc").val() !=""){

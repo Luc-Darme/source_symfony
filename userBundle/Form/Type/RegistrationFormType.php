@@ -24,7 +24,7 @@ class RegistrationFormType extends BaseType
         $builder->add('birthDate', 'date', array( 'widget' => 'choice', 'years'=>range((int)date("Y")-100, (int)date("Y")), 'label'  => 'Date de naissance :'))
                 ->add('lastName' , 'text' , array('label' => 'Nom :') )
                 ->add('firstName' , 'text' , array('label' => 'Prénom :'))
-                ->add('mobile' ,'number', array('label' => 'Numéro de téléphone : '))
+                ->add('mobile' ,'text', array('label' => 'Numéro de téléphone : '))
                 ->remove('quality')
                 ->add('privacyLevel', 'choice', array('choices'=>$this->container->getParameter('privacyLevels') , 'label'  => 'Paramètres de confidentialité :'))
                 ->add('headshot', new ImageType(), array('required'=>false , 'label'  => 'Photo de profil :  '))
