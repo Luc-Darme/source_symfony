@@ -10,10 +10,10 @@
         {%elseif app.user.hasRole('ROLE_ASSOM') %}
             <ul> <a href="{{ path('user_recomm') }}"> <li class="menugauche_avis"> Mes avis </li>  </a></ul>
             <ul> <a href="{{ path('assom_projects') }}"> <li class="menugauche_projets"> Mes projets </li>  </a></ul>
-            <ul> <a href="{{ path('assom_registerProject') }}"> <li class="menugauche_projets"> Créer un projet </li>  </a></ul>
+            <ul> <a href="{{ path('assom_registerProject') }}"> <li class="menugauche_el6"> Créer un projet </li>  </a></ul>
         {%endif%}
     {%else%}
-        <ul> <a href="{{ path('fos_user_registration_register') }}"> <li class="menugauche_el5"> Inscription </li>  </a></ul>
-        <ul> <a href="{{ path('fos_user_security_login') }}"> <li class="menugauche_el6"> Connexion </li>  </a></ul>
+        <ul> <a href="{{ path('fos_user_registration_register') }}"> <li class="menugauche_el6"> Inscription </li>  </a></ul>
+        <ul> <a href="{{ path('fos_user_security_login') }}"> <li class="menugauche_el5"> Connexion </li>  </a></ul>
     {%endif%}
 </div>

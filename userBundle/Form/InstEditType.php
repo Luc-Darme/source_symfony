@@ -13,11 +13,11 @@ class InstEditType extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
     $builder
-        ->add('institutionName')
-        ->add('description')
-        ->add('location')
-        ->add('headshot', new ImageType(), array('required'=>false))
-        ->add('save', 'submit')
+        ->add('institutionName','text' , array('label' => 'Nom de l\'institution :'))
+        ->add('description','textarea' , array('label' => 'Courte description :'))
+        ->add('location', 'text', array('attr' => array('class'=>'addressPickerInput') , 'label' => "Adresse de l'institution") )
+        ->add('headshot', new ImageType(), array('required'=>false, 'label' => 'Logo :'))
+        ->add('save', 'submit', array( 'label' => 'Ajouter' ) )
     ;
   }
 public function setDefaultOptions(OptionsResolverInterface $resolver)

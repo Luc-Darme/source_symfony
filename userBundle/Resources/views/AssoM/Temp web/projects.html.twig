@@ -19,7 +19,7 @@
                 <div class="projet_el_liste_haut">
                     <div class="hautgauche"> <img src="{{ asset('bundles/ecloreuser/images/projets/proj1.png') }}"></img></div> 
                     <div class="hautdroit"> <h2> <span>{{proj.projectName}} ({{proj.getPAByStatus('PENDING')|length + (proj.isFinished ? proj.getPAByStatus('VALIDATED')|length : 0)}} notifications)</span>  </h2>
-                    <span class="soustitre"> <span>{{proj.getDuration|number_format}} jours, </span> <span>{{proj.address}}</span></br>
+                    <span class="soustitre"> <span>{{proj.getDuration}} jours, </span> <span>{{proj.address}}</span></br>
                     <span>{{proj.shortDescription}}</span> 
                     </div>
                 </div>

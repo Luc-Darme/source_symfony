@@ -9,7 +9,7 @@ vertical-align:top;
 margin-bottom: 1em;
 }
 .coldroite   input {
-background-color : #A4C482 ;
+background-color : #8BAC68 ;
 width:90%;
 margin-right:5%;
 color: #fff;
@@ -40,7 +40,7 @@ background-color : #679C2F ;
 margin-top:1em;
 }
 .coldroite   select {
-background-color : #A4C482 ;
+background-color : #8BAC68 ;
 margin-left:5%;
 color: #fff;
 border-radius : 5px;
@@ -148,6 +148,13 @@ margin:auto;
 }
 
 
+/* -----La partie création d'instiution ----  */
+
+#eclore_user_instedittype_headshot_file{
+ width:60%;
+ margin-left: 5em;
+}
+
 /*  -------------------------------------- ---------------------------------------------------------------------------------------------------------- */
 /*  --------------------------------------   CSS pour le formulaire de création de nouveaux projets--------------------------------------------------------------------- */
 /*  --------------------------------------   ----------------------------------------------------------------------------------------------------- */
@@ -206,7 +213,10 @@ box-shadow:1px 1px 2px 1px #ccc;
 }
 
 
-
+#eclore_userbundle_projectregistertype_required {
+	width: 4em;
+	margin-left:2em;
+}
 
 
 

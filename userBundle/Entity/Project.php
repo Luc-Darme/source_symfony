@@ -532,10 +532,10 @@ public function isFinished()
     return $today->format('U') > $this->getEndDate()->format('U');
     }
     
-    public function isStarted()
+public function isStarted()
     {
     $today = new \DateTime();
-    return $today->format('U') <= $this->getStartDate()->format('U');
+    return $today->format('U') >= $this->getStartDate()->format('U');
     }
     
     
