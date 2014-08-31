@@ -9,24 +9,80 @@
 {% block content %}
 {%include "ecloreuserBundle::menu_user.html.twig"%}
 <div class="coldroite">
-Fiche suivi de {{young}}.<br>
-{{young}} participe actuellement aux projets suivants:
+<h1> Fiche de suivi de {{young}}.</h1>
+
+
+<!--
+<h2> Participe actuellement aux projets suivants :</h2>
 <ul>
 {%for proj in young.getCurrentProjects %}
-<li>{{proj}} avec l'association {{proj.association}}, à {{proj.city}}, jusqu'au {{proj.endDate|date('d/m/Y')}}</li>
+<li>
+<div class="wrapper_el_projets">
+            <a href=""  class="expandlink" onclick="return false">
+                <div class="projet_el_liste_haut">
+                    <div class="hautgauche"> <img src="{{ asset('bundles/ecloreuser/images/projets/proj1.png') }}"></img></div> 
+                    <div class="hautdroit"> <h2> <span>{{pa.project}} </span>  </h2>
+                    <span class="soustitre"> <span>{{pa.project.association}} , à {{pa.project.city}}, jusqu'au {{pa.project.endDate|date('d/m/Y')}}</br>
+                    <span>{{proj.shortDescription}}</span> 
+                    </div>
+                </div>
+                <div class="projet_el_liste_bas">
+                    <span>{{pa.project.description}}</span>
+                </div>
+            </a>
+ </div>
+</li>
 {%endfor%}
-<br>
-{{young}} est inscrit aux projets suivants:
+</ul>
+-->
+<h2> {{young}} est inscrit aux projets suivants :</h2>
+
+
 <ul>
 {%for pa in young.getPAByStatus('VALIDATED') %}
-<li>{{pa.project}} avec l'association {{pa.project.association}}, à {{pa.project.city}}, jusqu'au {{pa.project.endDate|date('d/m/Y')}}</li>
+<li>
+
+<div class="wrapper_el_projets">
+            <a href=""  class="expandlink" onclick="return false">
+                <div class="projet_el_liste_haut">
+                    <div class="hautgauche"> <img src="{{ asset('bundles/ecloreuser/images/projets/proj1.png') }}"></img></div> 
+                    <div class="hautdroit"> <h2> <span>{{pa.project}} </span>  </h2>
+                    <span class="soustitre"> <span>{{pa.project.association}} , à {{pa.project.city}}, jusqu'au {{pa.project.endDate|date('d/m/Y')}}</br>
+                    <span>{{proj.shortDescription}}</span> 
+                    </div>
+                </div>
+                <div class="projet_el_liste_bas">
+                    <span>{{pa.project.description}}</span>
+                </div>
+            </a>
+ </div>
+			
+</li>
 {%endfor%}
-<br>
-{{young}} a participé aux projets suivants:
+</ul>
+
+<h2>Historique de ses projets :</h2>
 <ul>
 {%for pa in young.getPAByStatus('MARKED') %}
-<li>{{pa.project}} avec l'association {{pa.project.association}}, à {{pa.project.city}}, jusqu'au {{pa.project.endDate|date('d/m/Y')}}</li>
+<li>
+<div class="wrapper_el_projets">
+            <a href=""  class="expandlink" onclick="return false">
+                <div class="projet_el_liste_haut">
+                    <div class="hautgauche"> <img src="{{ asset('bundles/ecloreuser/images/projets/proj1.png') }}"></img></div> 
+                    <div class="hautdroit"> <h2> <span>{{pa.project}} </span>  </h2>
+                    <span class="soustitre"> <span>{{pa.project.association}} , à {{pa.project.city}}, jusqu'au {{pa.project.endDate|date('d/m/Y')}}</br>
+                    <span>{{proj.shortDescription}}</span> 
+                    </div>
+                </div>
+                <div class="projet_el_liste_bas">
+                    <span>{{pa.project.description}}</span>
+                </div>
+            </a>
+ </div>
+</li>
 {%endfor%}
+</ul>
+
 </div>
 <div class="clearboth"></div>
 {% endblock %}

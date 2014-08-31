@@ -7,8 +7,13 @@
 {%set second='Espace personnel'%}
 
 {% block content %}
-Page de l'association {{asso.associationName}}.<br>
-<img src="{{app.request.basepath}}/{{ asso.getHeadshotWebPath }}" width='100'><br>
-Description: {{asso.description}}.<br>
-Location: {{asso.location}}.<br>
+<div id="menugauche"> 
+<img src="{{app.request.basepath}}/{{ asso.getHeadshotWebPath }}" width='100%'>
+</div>
+<div class="coldroite"> 
+	<h1>{{asso.associationName}}</h1>
+	<div class="soustitre"> {{asso.location}} </div>
+	{{asso.description}}
+
+</div>
 {% endblock %}

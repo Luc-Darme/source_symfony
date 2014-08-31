@@ -148,7 +148,7 @@ function populate(id, table, id_select, option){
 }
 
 $(document).ready(function() {   
-    
+
     google.maps.event.addDomListener(window, 'load', initialize);
     geocoder = new google.maps.Geocoder();
     var request = $.ajax({

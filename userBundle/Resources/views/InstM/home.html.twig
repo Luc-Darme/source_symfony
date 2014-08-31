@@ -11,21 +11,21 @@
 <div class="coldroite home">
     <h1> Bienvenue <span class="subject">{{app.user.username}}</span> ! </h1>
 
-Vous êtes dans votre espace membre. Vous pouvez voir le parcours des jeunes qui sont sous votre tutelle.  <br>
-<br>Vos institutions:
-<ul>
+Vous êtes dans votre espace membre. Vous pouvez y voir le parcours des jeunes qui appartiennent à votre établissement.  <br>
+
+
 {% for inst in instM.institutions %}
-    <li>{{inst|printInst}}
+<h2>  Jeunes membre de : {{inst|printInst}} </h2>
     {% if inst.youngs|length > 0 %}
         <ul>
         {% for young in inst.youngs %}
         <li>{{young}}, <a href="{{ path('instm_displayYoung', { 'id': young.id }) }}">Manager</a></li>
         {% endfor %}
         </ul>
-    </li>
+    
     {% endif %}
 {% endfor %}
-</ul>
+
 
 <h2> Actualités récentes </h2>
     <ul>

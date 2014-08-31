@@ -2,8 +2,8 @@
     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
         <ul> <a href="{{ path('ecloreuser_home') }}"> <li class="menugauche_el1"> Mon espace </li>  </a></ul>
         <ul> <a href="{{ path('fos_user_profile_show') }}"> <li class="menugauche_profil"> Mon profil </li>  </a></ul>
-        <ul> <a href="{{ path('user_annuaire') }}"> <li class="menugauche_annuaire"> Mon annuaire </li>  </a></ul>
-        <ul> <a href="{{ path('user_albums') }}"> <li class="menugauche_photo"> Mes photos </li>  </a></ul>
+        <ul> <a href="{{ path('user_annuaire') }}"> <li class="menugauche_annuaire"> Mon annuaire </li>  </a></ul> 
+        <!-- <ul> <a href="{{ path('user_albums') }}"> <li class="menugauche_photo"> Mes photos </li>  </a></ul>  -->
         {%if app.user.hasRole('ROLE_YOUNG') %}
             <ul> <a href="{{ path('user_recomm') }}"> <li class="menugauche_recom"> Mes recommandations </li> </a> </ul>
             <ul> <a href="{{ path('young_projects') }}"> <li class="menugauche_projets"> Mes projets </li>  </a></ul>
