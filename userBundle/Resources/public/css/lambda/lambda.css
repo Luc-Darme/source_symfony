@@ -274,6 +274,15 @@ overflow:hidden;
 	vertical-align:top;
 }
 
+
+.colgauche{
+	display: inline-block; 
+	float: right;
+	width:30%;
+	vertical-align:top;
+}
+
+
 .coldroite h1 {
 background: url(../../images/trait_separation_court.png) no-repeat;
 	background-size: 100% 6px;	
@@ -442,18 +451,27 @@ padding-left:5%;
 	width: 15%;
 }
 
-#blocktrie{
+.blocktri{
+margin-top:1em;
+margin-bottom:1em;
+}
+
+.filtre{
+display: inline-block ;
+vertical-align:top;
+width:30%;
+}
+.recherche{
+margin-top:-0.5em;
+display: inline-block ;
+vertical-align:top;
 float:right;
-width:20%;
-}
-
-#trier{
-width: 59%;
+width:30%;
 }
 
 
 
-#recherche{
+#loc{
  margin-left:1em;
  height:2em;
  overflow:scroll;
@@ -463,24 +481,23 @@ color: #fff;
 font-size:1em;
 box-shadow:1px 1px 2px 1px #ccc;
 padding-left:5%;
-width:25% ;
+width:60% ;
 }
 
-#recherche_submit {
-	width: 10%;
-	 height:3em;
-	 padding-top:0.2em;
+#loc_submit {
+	width: 30%;
+	 height:3.1em;
+	 padding-top:0.3em;
 	 margin-left:-0.2em	;
 	 box-shadow:1px 1px 2px 1px #ccc;
 
 }
 
-#filtre_actif {
+#search_zone {
 margin-top: 1em;
 width:100%;
-height:2em;
 padding-bottom:2em;
-background: url(../../images/trait_separation_long.png) no-repeat 0 2.5em / 100% 5%;
+background: url(../../images/trait_separation_long.png) no-repeat 0 5.5em / 100% 5%;
 }
 
 #map-canvas, #results {
@@ -489,6 +506,12 @@ vertical-align:top;
 }
 #results {
 width: 40%;
+}
+
+#results ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
 }
 #map-canvas{
 width: 59%;

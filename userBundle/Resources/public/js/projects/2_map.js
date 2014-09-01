@@ -134,7 +134,10 @@ function displayProjects(data){
                     '<span class="soustitre"> <span>'+getDuration(obj)+' jours ('+start_date.toLocaleDateString()+
                     ' - '+end_date.toLocaleDateString()+') </span> <span>'+obj.address+'</span></br>'+
                     '<span>'+obj.short_description+'</span></div></div><div class="projet_el_liste_bas">'+
-                    '<span>'+obj.description+'</span></div></a></div></li></ul> '
+                     '</div></a> ' +                 
+                '<div class="projet_el_liste_bas">'+
+                   ' <span> ' + obj.description +' </span>'+
+                '</div>' + '</div></li></ul>'
 )    
     });
     if(data.length==0)$("#results").append('Pas de résultats.');
@@ -188,9 +191,9 @@ $(document).ready(function() {
             
             $("#loading").fadeOut()    
             $("#search_zone").fadeIn()    
-            $("#label_select").chosen();
-            $("#association_select").chosen();
-            $("#tri").data("placeholder","Trier les projets...").chosen();
+            $("#label_select").chosen({width: "60%"} );
+            $("#association_select").chosen({width: "55%"} );
+            $("#tri").data("placeholder","Trier les projets...").chosen({width: "20%"} );
         });
         
         
@@ -213,6 +216,11 @@ $(document).ready(function() {
     }
 });
     
-    
+      $('.wrapper_el_projets').click(function(){
+			$('.wrapper_el_projets').css({"border" : "", "border-radius": "", "box-shadow" : " 1px 1px 2px 2px #fff" });
+			$(this).css({"border" : " 1px solid #ccc", "border-radius": " 5px", "box-shadow" : " 1px 1px 2px 2px #ccc" });
+			$('.projet_el_liste_bas').css({"display" : "none"});
+			$(this).children('.expandlink').children('.projet_el_liste_bas').css('display','block');
+    });
       
     });

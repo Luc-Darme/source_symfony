@@ -8,21 +8,29 @@
 
 
 {% block content %}
-ceci est la page de recherche des projets<br>
+<h1> Rechercher un projet </h1>
 <div id='loading'>Chargement en cours...
     <img src="{{ asset('bundles/ecloreuser/images/ajax-loader.gif') }}"/>
 </div>
 
 <div id='search_zone' style='display:none;'>
-    Filtrer par label:
-    <select id='label_select' multiple='multiple' data-placeholder="Labels..." style='width:10em''>
-    </select>
-    <br>
+
+    <div class="filtre">
+		Filtrer par label:
+		<select id='label_select' multiple='multiple' data-placeholder="Labels...">
+		</select>
+	</div>
+	<div class="filtre">
     Filtrer par association:
-    <select id='association_select' multiple='multiple' data-placeholder="Associations..." style='width:10em'>
+    <select id='association_select' multiple='multiple' data-placeholder="Associations...">
     </select>
-    <br>
-    Trier:
+	</div>
+	<div class="recherche"> <input type='text' id='loc'><input type='button' id='loc_submit' value='chercher'></div>
+	<div class="clearboth"></div>
+    
+    <div class="blocktri">
+
+	Trier:
     <select id='tri' data-placeholder="Trier...">
         <option value="project_name+">Nom: croissant</option>
         <option value="project_name-">Nom: décroissant</option>
@@ -33,13 +41,15 @@ ceci est la page de recherche des projets<br>
         <option value="end_date+">Date de fin: croissant</option>
         <option value="end_date-">Date de fin: décroissant</option>
     </select>
-    <br>
-    <div id='results' class='projets'>
-    </div>
+	</div>
 </div>
-<br>
-<input type='text' id='loc'><input type='button' id='loc_submit' value='chercher'><br>
-<div id="map-canvas" style="width:800px;
+
+ <div id='results' class='projets'>
+ </div>
+
+
+
+<div id="map-canvas"  style="
  height:300px;
  border:1px solid grey;"/> </div>
  
