@@ -165,9 +165,9 @@ ecloreuser_leReseau:
     
 ecloreuser_statuts:
     pattern:  /nos-statuts
-    defaults: { _controller: FrameworkBundle:Template:template, template:'ecloreuserBundle:Static:en-construction.html.twig' }
+    defaults: { _controller: FrameworkBundle:Template:template, template:'ecloreuserBundle:Static:statuts.html.twig' }
     
-ecloreuser_statuts:
+ecloreuser_contact:
     pattern:  /contact
     defaults: { _controller: FrameworkBundle:Template:template, template:'ecloreuserBundle:Static:en-construction.html.twig' }
     
