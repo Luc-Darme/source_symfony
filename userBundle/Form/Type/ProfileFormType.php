@@ -21,13 +21,13 @@ class ProfileFormType extends BaseType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         
-        $builder->add('birthDate', 'date', array( 'widget' => 'choice', 'years'=>range((int)date("Y")-100, (int)date("Y"))))
-                ->add('lastName')
-                ->add('firstName')
-                ->add('mobile')
-                ->add('quality')
-                ->add('privacyLevel', 'choice', array('choices'=>$this->container->getParameter('privacyLevels')))
-                ->add('headshot', new ImageType())
+        $builder->add('birthDate', 'date', array( 'widget' => 'choice', 'years'=>range((int)date("Y")-100, (int)date("Y")), 'label'=>"Date de naissance"))
+                ->add('lastName', 'text', array(  'label'=>" Nom de famille :"))
+                ->add('firstName', 'text',  array(  'label'=>" Prénom :"))
+                ->add('mobile','text',  array(  'label'=>"Numéro de téléphone :"))
+                ->add('quality','text',  array(  'label'=>"Une phrase sur vous ?"))
+                ->add('privacyLevel', 'choice', array('choices'=>$this->container->getParameter('privacyLevels'), 'label'=>"Confidentialité de vos données personnelles"))
+                ->add('headshot', new ImageType(),  array(  'label'=>"Photo de profil"))
                 ;
     }
 

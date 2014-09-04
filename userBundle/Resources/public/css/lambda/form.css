@@ -156,7 +156,7 @@ margin:auto;
 }
 
 /*  -------------------------------------- ---------------------------------------------------------------------------------------------------------- */
-/*  --------------------------------------   CSS pour le formulaire de création de nouveaux projets--------------------------------------------------------------------- */
+/*  --------------------------------------   CSS pour le formulaire de création/edition de nouveaux projets--------------------------------------------------------------------- */
 /*  --------------------------------------   ----------------------------------------------------------------------------------------------------- */
 
 #fos_user_register_project_form>div {
@@ -191,11 +191,15 @@ min-height : 10em;
 font-family: "Constantia";
 }
 
+eclore_userbundle_projectregistertype_shortDescription {
+min-height:5em;
+}
+
 #eclore_userbundle_projectregistertype_address {
 width:50%;
 margin-left: 1em !important;
 margin-bottom:0 !important;
-margin-top:0 !important;
+margin-top:1em !important;
 }
 
 #eclore_userbundle_projectregistertype_save {
@@ -204,6 +208,14 @@ margin-left:30%;
 margin-top:1em;
 margin-bottom:2em;
 
+}
+
+#eclore_userbundle_projectregistertype_association {
+width:40%;
+}
+
+#eclore_userbundle_projectregistertype_labels {
+width:40%;
 }
 
 .coldroite #map {
@@ -227,6 +239,16 @@ box-shadow:1px 1px 2px 1px #ccc;
 
 .fos_user_profile_form div {
 width: 100%;
+}
+
+.fos_user_profile_edit input {
+width:50%;
+margin-left:2em;
+display:block;
+}
+
+#fos_user_profile_form_quality {
+width:83%;
 }
 
 /*  -------------------------------------- ---------------------------------------------------------------------------------------------------------- */
@@ -254,7 +276,7 @@ width: 25%;
 
 
 /*  -------------------------------------- ---------------------------------------------------------------------------------------------------------- */
-/*  --------------------------------------   CSS pour le formulaire de définition du type de profil--------------------------------------------------------------------- */
+/*  --------------------------------------   CSS pour le formulaire de définition/édition du type de profil--------------------------------------------------------------------- */
 /*  --------------------------------------   ----------------------------------------------------------------------------------------------------- */
 
 #defprofil form>div {
@@ -330,4 +352,14 @@ min-height: 20em;
 #eclore_user_assocreatetype_adresse{
 min-height: 3em;
 width:100%;
+}
+
+/*  -------------------------------------- ---------------------------------------------------------------------------------------------------------- */
+/*  --------------------------------------   CSS pour le formulaire de changement de mot de pass--------------------------------------------------------------------- */
+/*  --------------------------------------   ----------------------------------------------------------------------------------------------------- */
+
+#fos_user_change_password_form div input{
+display:block;
+width:30%;
+margin-left : 2em;
 }

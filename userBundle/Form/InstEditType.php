@@ -15,7 +15,7 @@ class InstEditType extends AbstractType
     $builder
         ->add('institutionName','text' , array('label' => 'Nom de l\'institution :'))
         ->add('description','textarea' , array('label' => 'Courte description :'))
-        ->add('location', 'text', array('attr' => array('class'=>'addressPickerInput') , 'label' => "Adresse de l'institution") )
+        ->add('location', 'text', array('attr' => array('class'=>'addressPickerInput') , 'label' => "Adresse de l'institution :") )
         ->add('headshot', new ImageType(), array('required'=>false, 'label' => 'Logo :'))
         ->add('save', 'submit', array( 'label' => 'Ajouter' ) )
     ;
