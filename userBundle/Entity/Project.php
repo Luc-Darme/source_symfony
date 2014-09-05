@@ -159,7 +159,9 @@ class Project
     
     public function getReducedAssociation()
     {
-    return array('id'=>$this->getAssociation()->getId(), 'associationName'=>$this->getAssociation()->getAssociationName());
+    return array('id'=>$this->getAssociation()->getId(), 
+    'associationName'=>$this->getAssociation()->getAssociationName(),
+    'associationHeadshot'=>$this->getAssociation()->getHeadshotWebPath());
     }
     
     public function getStartDateTimestamp()
