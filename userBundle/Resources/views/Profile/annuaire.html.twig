@@ -34,7 +34,7 @@ Jeunes:
 <table>
 {%for contact in app.user.getContactsByRole('ROLE_YOUNG') %}
 <tr>
-<td>{{contact}}</td>
+<td>{{contact|printName}}</td>
 <td>{{contact.mobile}}</td>
 <td>{{contact.email}}</td>
 <td>{{contact.young.institutions|join(', ')}}</td>
