@@ -12,6 +12,12 @@
     <h1> Bienvenue <span class="subject">{{app.user.username}}</span> ! </h1>
     Vous êtes dans votre espace membre. Vous pouvez y administrer les projets dont vous avez la responsabilité, gérer les jeunes inscrits dans les projets que vous 
     proposez ou encore consulter leur avis ! N'hésitez pas à nous contacter pour tout problèmes.
+    <br><br>Vos associations:
+    <ul>
+        {%for asso in app.user.assoM.associations%}
+        <li>{{asso.associationName}} (<a href="{{ path('assom_editAsso', { 'id': asso.id }) }}"> Editer </a>)</li>
+        {%endfor%}
+    </ul>
     <h2> Actualités récentes </h2>
     <ul>
     {% for action in timeline_coll %}
