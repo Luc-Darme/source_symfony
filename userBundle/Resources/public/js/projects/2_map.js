@@ -12,7 +12,7 @@ var previousOpen=-1;
 
 function initialize() {
   var mapOptions = {
-    zoom: 10,
+    zoom: 11,
     center: default_location,
 	scaleControl: true
   }
