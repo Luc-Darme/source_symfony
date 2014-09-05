@@ -223,7 +223,7 @@ class Association
     public function getHeadshotWebPath()
     {
         if($this->headshot==null)
-            return 'uploads/img/defaultHeadshot.jpg';
+            return 'uploads/img/symbole_eclore.png';
         return $this->headshot->getWebPath();
     }
 }
