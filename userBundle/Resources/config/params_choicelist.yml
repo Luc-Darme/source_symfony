@@ -19,4 +19,4 @@ parameters:
     investmentRequired:
         1: 'Week-end seulement'
         0: 'Soirs de semaine et Week-end'
-        2: 'Jourss de semaine et WE'
+        2: 'Jours de semaine et WE'
