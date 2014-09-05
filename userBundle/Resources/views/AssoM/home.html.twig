@@ -15,7 +15,7 @@
     <br><br>Vos associations:
     <ul>
         {%for asso in app.user.assoM.associations%}
-        <li>{{asso.associationName}} (<a href="{{ path('assom_editAsso', { 'id': asso.id }) }}"> Editer </a>)</li>
+        <li>{{asso|printAsso}} (<a href="{{ path('assom_editAsso', { 'id': asso.id }) }}"> Editer </a>)</li>
         {%endfor%}
     </ul>
     <h2> Actualités récentes </h2>
