@@ -20,7 +20,7 @@ class YoungController extends Controller
         $actionManager = $this->get('spy_timeline.action_manager');
         $subject = $actionManager->findOrCreateComponent($user);
         $timelineManager = $this->get('spy_timeline.timeline_manager');
-        $timeline = $timelineManager->getTimeline($subject);
+        $timeline = $timelineManager->getTimeline($subject, array('page' => 1, 'max_per_page' => '10', 'paginate' => true));
 
         return $this->render('ecloreuserBundle:Young:home.html.twig', array('timeline_coll'=>$timeline)); 
     }
