@@ -184,9 +184,7 @@ class AssoMController extends Controller
                 $this->get('session')->getFlashBag()->add(
                 'notice',
                 'Le projet a été correctement créé! Il est soumis à validation.');
-                // event dispatcher
-                $event = new NewProjectEvent($project);
-                $this->container->get('event_dispatcher')->dispatch(TimelineEvents::onNewProject, $event);
+                
                 return $this->redirect($this->generateUrl('assom_manageProject', 
                 array('id'=>$project->getId())));
             }
