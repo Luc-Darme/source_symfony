@@ -132,7 +132,7 @@ function displayProjects(data){
                     '<div class="hautgauche"> <img src='+webPath+'/'+obj.association.associationHeadshot+'></img></div> '+
                     '<div class="hautdroit"> <h2> <span>'+obj.project_name+'</span>  </h2>'+
                     '<span class="soustitre"> <span>'+getDuration(obj)+' jours ('+start_date.toLocaleDateString()+
-                    ' - '+end_date.toLocaleDateString()+') </span> <span>'+obj.address+'</span></br>'+
+                    ' - '+end_date.toLocaleDateString()+') </span> <span>'+obj.city+'</span></br>'+
                     '<span>'+obj.short_description+'</span></div></div><div class="projet_el_liste_bas">'+
                      '</div></a> ' +                 
                 '<div class="projet_el_liste_bas">'+
