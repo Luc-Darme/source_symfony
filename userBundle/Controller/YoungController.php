@@ -34,7 +34,7 @@ class YoungController extends Controller
         $project = $repository->find($id);
         
         // verifie que le projet existe et n'est pas terminé.
-        if(!$project || $project->isFinished() || !$project->getEnabled() || !$project->isFull())
+        if(!$project || $project->isFinished() || !$project->getEnabled() || $project->isFull())
         {
             $this->get('session')->getFlashBag()->add(
                 'notice',
