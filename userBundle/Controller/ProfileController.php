@@ -179,8 +179,8 @@ class ProfileController extends Controller
         
         $rep = $em->getRepository('ecloreuserBundle:Notification');     
                 
-        // si $user2 n'existe pas
-        if(!$user2)
+        // si $user2 n'existe pas ou ets en mode invisible
+        if(!$user2 || $user2->getPrivacyLevel() == 2)
         {
             $this->container->get('session')->getFlashBag()->add(
                         'notice',
