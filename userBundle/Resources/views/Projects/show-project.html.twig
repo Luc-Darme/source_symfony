@@ -31,7 +31,9 @@
 		{% if validated|length+terminated|length+marked|length > 0 %}
 			Jeunes inscrits à ce projet:<ul>
 				{%for part in validated%}
+				     {%if part.young.user.privacyLevel != 2%}
 					<li>{{part.young.user|printName}}</li>
+				    {%endif%}
 				{%endfor%}
 				</ul>
 			{% endif%}
