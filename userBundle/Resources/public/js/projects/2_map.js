@@ -147,6 +147,13 @@ function displayProjects(data){
 )    
     });
     if(data.length==0)$("#results").append('Pas de résultats.');
+    $("#results ul.item ").click( function() {
+                var i = parseInt($(this).attr('id'))
+                map.setCenter(markers[i].getPosition());
+                if(previousOpen != -1){infowindows[previousOpen].close();}
+                infowindows[i].open(map,markers[i]);
+                previousOpen = i
+            });  
 }
 
 function populate(id, table, id_select, option){
@@ -185,13 +192,7 @@ $(document).ready(function() {
             $("#tri").change(function(){displayProjects(data)});
             
                 //centrer la carte sur ce projet et ouvrir l'infowindow
-            $("#results ul.item ").click( function() {
-                var i = parseInt($(this).attr('id'))
-                map.setCenter(markers[i].getPosition());
-                if(previousOpen != -1){infowindows[previousOpen].close();}
-                infowindows[i].open(map,markers[i]);
-                previousOpen = i
-            });  
+            
             
            //showMarkers()
             
