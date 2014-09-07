@@ -29,8 +29,8 @@ function addMarker(obj) {
     start_date = new Date(obj.start_date*1000);
     end_date = new Date(obj.end_date*1000);
     asso = obj.association.associationName
-    var content = '<b>'+titre+' ('+asso+') du '+start_date.toLocaleDateString()+' au '+end_date.toLocaleDateString()+'</b><br>'+descr
-    var infowindow = new google.maps.InfoWindow({content: content, maxWidth: 500});
+    var content = '<div style="min-height:100px;"><b>'+titre+' ('+asso+') du '+start_date.toLocaleDateString()+' au '+end_date.toLocaleDateString()+'</b><br>'+descr+'</div>'
+    var infowindow = new google.maps.InfoWindow({content: content, maxWidth: 300});
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(lat,lng),
       map: map,
