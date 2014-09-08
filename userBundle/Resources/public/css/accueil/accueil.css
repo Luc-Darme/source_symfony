@@ -261,7 +261,7 @@ z-index:2;
 
 
 .banner{
-	height: 70%;
+	height: 23%;
 	background-size: 100% 10%;
 	z-index: 10 ;
 	position:absolute;
@@ -277,7 +277,7 @@ z-index:2;
 
 .textbanner{
 	position:absolute;
-	top:57%;
+	top:30%;
 	margin-right:15%;
 	margin-left:15%;
 	z-index:40;
@@ -344,7 +344,7 @@ z-index:2;
 
 	
 .fillbanner{
-	height: 14%;
+	height: 18%;
 	z-index: 0 ;
 	width: 100%;
 }
@@ -352,11 +352,11 @@ z-index:2;
 
 #banner_projet
 {
-	background:url('../../images/barre_bleu.png') no-repeat fixed; 
+	background:url('../../images/barre_bleu.png') no-repeat ; 
 	color: #fff;
-	top : 129% ;
+	top : 164% ;
 	background-position: 0px -10%;
-	background-size: 100% 20%;
+	background-size: 100% 100%;
 
 }
 #word_projet
@@ -373,11 +373,11 @@ z-index:2;
 }
 #banner_reseau
 {
-	background:url('../../images/barre_orange.png') no-repeat fixed;
+	background:url('../../images/barre_orange.png') no-repeat ;
 	color: #fff;
-	top : 277% ;
+	top : 312% ;
 	background-position: 0 -10%;
-	background-size: 100% 23%;
+	background-size: 100% 100%;
 }
 #word_reseau
 {
@@ -400,10 +400,10 @@ z-index:2;
 }
 #banner_eclore	
 {
-	background:url('../../images/barre_vert.png') no-repeat fixed; 
-	top : 418% ;
+	background:url('../../images/barre_vert.png') no-repeat ; 
+	top : 453% ;
 	background-position: 0% -8%;
-	background-size: 100% 20%;
+	background-size: 100% 100%;
 
 }
 #word_eclore
@@ -412,12 +412,13 @@ z-index:2;
 	background-position: 3% 7%;
 	background-size: 8% 40%;
 	z-index: 20 ;
-	/*right:90%; */
+	right:90%; 
 	top:400%;
 }
 #eclore
 {
 /*	background:url('images/fond_vert.png')  no-repeat fixed; */
-height:20.5%;
+height:23%;
 }
+
 

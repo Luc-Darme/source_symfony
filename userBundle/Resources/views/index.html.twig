@@ -88,10 +88,10 @@
 			 <h2> Rejoignez le réseau </h2>
 			 <div id="boutoninscription"> 
              {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-			 <a href="{{ path('fos_user_registration_register') }}" style="text-decoration:none;"> Inscrivez-vous </a> 
-			 Déjà inscrit(e) ? <a href="{{ path('fos_user_security_login') }}" style=" font-size:1em;"> Connectez-vous </a> 
+			 <a href="{{ path('fos_user_registration_register') }}" > Inscrivez-vous </a> 
+			 Déjà inscrit(e) ? <a href="{{ path('fos_user_security_login') }}" > Connectez-vous </a> 
                 {%else%}
-                <a href="{{ path('ecloreuser_home') }}" style=" font-size:1em;"> Accédez à votre espace </a> 
+                <a href="{{ path('ecloreuser_home') }}" "> Accédez à votre espace </a> 
                 {%endif%}
 			 </div> 
 			
@@ -99,7 +99,12 @@
 		</article>
 		<article id="recherche">
 			 <h2> Rechercher un projet</h2>
-			 <div id="rechercheprojets"> <a href="{{ path('ecloreuser_rechercherProjet') }}">Accéder à la zone de recherche</a></div> 
+			 <div id="boutoninscription"> 
+				<div id="rechercheprojets">
+					<a href="{{ path('ecloreuser_rechercherProjet') }}">Accéder à la zone de recherche</a>
+				</div> 
+			 </div> 
+			 
 		</article>
 		
 		<article id="derniersprojets">
@@ -187,11 +192,11 @@
 				
 		</article>
 		
-		<article class="filactu">
+		<!-- <article class="filactu">
 			 <h2> Fil Twitter</h2>
-		</article>
-		<article class="filactu" style="right: 28%;">
-			 <h2> Témoignages</h2>
+		</article> -->
+		<article class="filactu" id="tweet" >
+			 
 		</article>
 
    </section>
@@ -263,6 +268,6 @@
         <script src="{{ asset('bundles/ecloreuser/js/lambda/jquery.carouFredSel-6.2.1-packed.js')}}" type="text/javascript"></script>
         <script src="{{ asset('bundles/ecloreuser/js/accueil/anim.js')}}"> </script>
         <script src="{{ asset('bundles/ecloreuser/js/lambda/anim_menu.js')}}"> </script>
- 
+		<script src="{{ asset('bundles/ecloreuser/js/accueil/tweecool.min.js')}}"> </script>
 </body>
 </html>
