@@ -26,7 +26,7 @@ $(function () {
 		
     })
 	
- $('#assoM_associations').chosen({width: "60%", placeholder_text_single: "Rechercher"});
- $('#young_institutions').chosen({width: "60%", placeholder_text_single: "Rechercher"});
- $('#instM_institutions').chosen({width: "60%", placeholder_text_single: "Rechercher"});
+ $('#assoM_associations').chosen({width: "50%", placeholder_text_single: "Rechercher"});
+ $('#young_institutions').chosen({width: "50%", placeholder_text_single: "Rechercher"});
+ $('#instM_institutions').chosen({width: "50%", placeholder_text_single: "Rechercher"});
 });

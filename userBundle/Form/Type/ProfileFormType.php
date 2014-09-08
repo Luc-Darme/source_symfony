@@ -25,7 +25,7 @@ class ProfileFormType extends BaseType
                 ->add('lastName', 'text', array(  'label'=>" Nom de famille :"))
                 ->add('firstName', 'text',  array(  'label'=>" Prénom :"))
                 ->add('mobile','text',  array(  'label'=>"Numéro de téléphone :"))
-                ->add('quality','text',  array(  'label'=>"Une phrase sur vous ?"))
+                ->add('quality','text',  array(  'label'=>"Votre situation actuelle (par exemple: 2ème année de BTS, président d'association, etc...)"))
                 ->add('privacyLevel', 'choice', array('choices'=>$this->container->getParameter('privacyLevels'), 'label'=>"Confidentialité de vos données personnelles"))
                 ->add('headshot', new ImageType(),  array(  'label'=>"Photo de profil"))
                 ;

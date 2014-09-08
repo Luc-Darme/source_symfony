@@ -9,10 +9,10 @@
 {% block content %}
 {%include "ecloreuserBundle::menu_user.html.twig"%}
 <div class="coldroite">
-Vous êtes dans votre annuaire<br>
+<h1> Gestion de vos contacts </h1>
 
 {%if contact_not|length>0 %}
-Vos demandes de contact à gérer:
+<h2> Demandes de contact à gérer </h2>
 <ul>
 {% for notif in contact_not %}
     <li>{{notif.initDate|date('d-m-Y')}} de {{notif.sender}}: {{notif.message}} 
@@ -22,58 +22,68 @@ Vos demandes de contact à gérer:
 {% endfor %}
 </ul>
 {%else%}
-Pas de demandes de contact en attente.
+
 {%endif%}
-<br>
 
-<br>
 {%if app.user.contacts|length>0 %}
-Vos contacts:
-<br>
-Jeunes:
-<table>
-{%for contact in app.user.getContactsByRole('ROLE_YOUNG') %}
-<tr>
-<td>{{contact|printName}}</td>
-<td>{{contact.mobile}}</td>
-<td>{{contact.email}}</td>
-<td>{{contact.young.institutions|join(', ')}}</td>
-<td><a href="{{path('displayMember', {'id':contact.id})}}">Détails...</a></td>
-<td><a href="{{path('user_removeContact', {'id':contact.id})}}">Supprimer</a></td>
 
-</tr>
-{%endfor%}
-</table>
-<br>
-Membres associatifs:
-<table>
+{%if app.user.getContactsByRole('ROLE_YOUNG')|length > 0 %}
+
+<h2> Jeunes </h2>
+	{%for contact in app.user.getContactsByRole('ROLE_YOUNG') %}
+	
+	<div class="colquarter contact">
+   <div class="imgtitle"> <img src="{{app.request.basepath}}/{{ contact.getHeadshotWebPath }}" width='80%'> </div>
+	<h3> {{contact|printName}} </h3>
+	{{contact.mobile}}, 
+	{{contact.email}}</br>
+	{{contact.young.institutions|join(', ')}}</br>		
+	<a href="{{path('displayMember', {'id':contact.id})}}">Détails...</a>
+	<a href="{{path('user_removeContact', {'id':contact.id})}}">Supprimer</a>
+	</div>
+
+	{%endfor%}
+
+{%endif%}
+
+
+{%if app.user.getContactsByRole('ROLE_ASSOM')|length > 0 %}
+<h2>  Membres associatifs</h2>
+
 {%for contact in app.user.getContactsByRole('ROLE_ASSOM') %}
-<tr>
-<td>{{contact}}</td>
-<td>{{contact.mobile}}</td>
-<td>{{contact.email}}</td>
-<td>{{contact.assoM.associations|join(', ')}}</td>
-<td><a href="{{path('displayMember', {'id':contact.id})}}">Détails...</a></td>
-<td><a href="{{path('user_removeContact', {'id':contact.id})}}">Supprimer</a></td>
-</tr>
+	<div class="colquarter contact">
+   <div class="imgtitle contact"> <img src="{{app.request.basepath}}/{{ contact.getHeadshotWebPath }}" width='80%'> </div>
+	<h3> {{contact|printName}} </h3>
+	{{contact.mobile}}, 
+	{{contact.email}}</br>
+	{{contact.assoM.institutions|join(', ')}}</br>		
+	<a href="{{path('displayMember', {'id':contact.id})}}">Détails...</a>
+	<a href="{{path('user_removeContact', {'id':contact.id})}}">Supprimer</a>
+	</div>
 {%endfor%}
-</table>
-<br>
-Membres institutionnels:
-<table>
+
+{%endif%}
+
+{%if app.user.getContactsByRole('ROLE_INSTM')|length > 0 %}
+<h2> Membres institutionnels </h2>
+
 {%for contact in app.user.getContactsByRole('ROLE_INSTM') %}
-<tr>
-<td>{{contact}}</td>
-<td>{{contact.mobile}}</td>
-<td>{{contact.email}}</td>
-<td>{{contact.instM.institutions|join(', ')}}</td>
-<td><a href="{{path('displayMember', {'id':contact.id})}}">Détails...</a></td>
-<td><a href="{{path('user_removeContact', {'id':contact.id})}}">Supprimer</a></td>
-</tr>
+
+	<div class="colquarter contact">
+   <div class="imgtitle "> <img src="{{app.request.basepath}}/{{ contact.getHeadshotWebPath }}" width='80%'> </div>
+	<h3> {{contact|printName}} </h3>
+	{{contact.mobile}}, 
+	{{contact.email}}</br>
+	{{contact.instM.institutions|join(', ')}}</br>		
+	<a href="{{path('displayMember', {'id':contact.id})}}">Détails...</a>
+	<a href="{{path('user_removeContact', {'id':contact.id})}}">Supprimer</a>
+	</div>
+
 {%endfor%}
-</table>
+
+{%endif%}
 {%else%}
-Pas de contacts dans l'annuaire.
+Pas encore de contacts dans votre annuaire.
 {%endif%}
 </div>
 <div class="clearboth"></div>

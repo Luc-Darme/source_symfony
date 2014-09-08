@@ -20,7 +20,7 @@
 {%set marked = proj.PAByStatus('MARKED') %}
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     {%if app.user.hasRole('ROLE_YOUNG') and not app.user.young.hasApplied(proj)%}
-        <a href="{{ path('young_apply',{'id': proj.id}) }}">Candidater à ce projet!</a>
+        <a href="{{ path('young_apply',{'id': proj.id}) }}"> Candidater à ce projet!</a>
     {%endif%}
     {% if date(proj.enddate) < date() %}
         Ce projet est terminé.<br>
@@ -46,9 +46,9 @@
 
 
 <div class="colgauche asideleft"> 
-	<div> <img src="{{app.request.basepath}}/{{ proj.association.getHeadshotWebPath }}" width='80%'> </div>
-	<div> Projet porté par {{proj.association}} <br><br>
-		<a href="{{ path('displayAsso',{'id': proj.association.Getid()}) }}"> Découvrir cette association >> </a>
+	<div> <img src="{{app.request.basepath}}/{{ proj.association.getHeadshotWebPath }}" width='70%'> </div>
+	<div> Projet porté par {{proj.association}} <br>
+		<a href="{{ path('displayAsso',{'id': proj.association.Getid()}) }}"> Découvrir cette association </a>
 	</div>
  </div>
 

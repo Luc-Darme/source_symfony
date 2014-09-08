@@ -459,14 +459,14 @@ margin-bottom:1em;
 .filtre{
 display: inline-block ;
 vertical-align:top;
-width:30%;
+width:48.5%;
 }
 .recherche{
-margin-top:-0.5em;
+margin-top:0.5em;
 display: inline-block ;
 vertical-align:top;
 float:right;
-width:30%;
+width:52%;
 }
 
 
@@ -481,7 +481,7 @@ color: #fff;
 font-size:1em;
 box-shadow:1px 1px 2px 1px #ccc;
 padding-left:5%;
-width:60% ;
+width:47% ;
 }
 
 #loc_submit {
@@ -491,6 +491,13 @@ width:60% ;
 	 margin-left:-0.2em	;
 	 box-shadow:1px 1px 2px 1px #ccc;
 
+}
+
+#label_select_chosen {
+width:58%;
+}
+#association_select_chosen{
+width:48%;
 }
 
 #search_zone {
@@ -514,7 +521,7 @@ width: 40%;
     margin: 0px;
 }
 #map-canvas{
-width: 59%;
+width: 55%;
 }
 
 
@@ -683,9 +690,8 @@ border-radius:5px;
 	margin-bottom:2em;
 	margin-top:1em;
 }
-
-.colquarter .imgtitle{
-
+.contact .imgtitle {
+	background-image: none;
 }
 .colhalf .imgtitle{
 
