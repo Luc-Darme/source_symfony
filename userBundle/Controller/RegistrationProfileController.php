@@ -22,7 +22,7 @@ class RegistrationProfileController extends Controller
         $youngFormBuilder
             ->setMethod('POST')
             ->add('institutions', 'entity', array('class'=>'ecloreuserBundle:Institution',
-            'property'=>'institutionName', 'multiple'=>true,'empty_data' => '', 'required'=>false, 'label'=>'A quelle(s) institution(s) es-tu rattaché ?', 'empty_data'=>'Aucune.'))
+            'property'=>'institutionName', 'multiple'=>true, 'label'=>'A quelle(s) institution(s) es-tu rattaché ?', 'empty_data'=>'Aucune.'))
             ->add('quality', 'textarea', array('mapped'=>false, 'label'=>'Que fais-tu actuellement (scolairement) ?'))
             ->add('submitYoung', 'submit', array('label'=>'Finir l\'inscription'));
            
