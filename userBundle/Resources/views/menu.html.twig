@@ -5,7 +5,9 @@
 						  <a href="mailto:contact@reseau-eclore.org" class="sousmenu"><span>Nous contacter</span> </a>   </li> 
 					<li> <h3> <a href="#">Les projets</a>   </h3>
 						 <a href="{{path('ecloreuser_rechercherProjet')}}" class="sousmenu"> <span>Rechercher un projet</span></a>
+						 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and app.user.hasRole('ROLE_ASSOM') %}
 						 <a href="{{path('assom_registerProject')}}" class="sousmenu"> <span>Proposer un projet</span></a>
+						 {%endif%}
 					</li>
 			        <li><h3> <a href="#">Le réseau</a>  </h3>
 						 <a href="{{path('displayNewsPost' , {'id': 1})}}" class="sousmenu"><span>Les actualités</span></a> 
