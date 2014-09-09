@@ -9,24 +9,22 @@ $(function () {
 	
 	
 	 $("#defprofil>form>div").hide();
-	$("#fos_choix_type_membre").prop("selectedIndex", -1);
 	
-	
-     $('#fos_choix_type_membre option').click(function(){
-	 $("#defprofil>form>div").hide();
-        if (this.value == 0){ 
-            $("#young").show();           
+    $('#fos_choix_type_membre').change(function(){
+	 $("#defprofil>form>div").fadeOut(100);
+        if ($('#fos_choix_type_membre').val() == 0){ 
+            $("#young").fadeIn(100);           
         }
-		if (this.value == 1){ 
-            $("#instM").show();           
+		if ($('#fos_choix_type_membre').val() == 1){ 
+            $("#instM").fadeIn(100);           
         }
-	   if (this.value == 2){ 
-            $("#assoM").show();           
+	   if ($('#fos_choix_type_membre').val() == 2){ 
+            $("#assoM").fadeIn(100);           
         }
 		
     })
 	
- $('#assoM_associations').chosen({width: "50%", placeholder_text_single: "Rechercher"});
- $('#young_institutions').chosen({width: "50%", placeholder_text_single: "Rechercher"});
- $('#instM_institutions').chosen({width: "50%", placeholder_text_single: "Rechercher"});
+ $('#assoM_associations').data("placeholder","Rechercher...").chosen({width: "60%"});
+ $('#young_institutions').data("placeholder","Rechercher...").chosen({width: "60%"});
+ $('#instM_institutions').data("placeholder","Rechercher...").chosen({width: "60%"});
 });
