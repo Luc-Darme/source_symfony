@@ -18,10 +18,10 @@
 {%set validated = proj.PAByStatus('VALIDATED') %}
 {%set terminated = proj.PAByStatus('TERMINATED') %}
 {%set marked = proj.PAByStatus('MARKED') %}
-{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-    {%if app.user.hasRole('ROLE_YOUNG') and not app.user.young.hasApplied(proj)%}
+{%if (is_granted("IS_AUTHENTICATED_REMEMBERED") and app.user.hasRole('ROLE_YOUNG')) or not is_granted("IS_AUTHENTICATED_REMEMBERED")%}
         <a href="{{ path('young_apply',{'id': proj.id}) }}"> Candidater à ce projet!</a>
-    {%endif%}
+{%endif%}
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     {% if date(proj.enddate) < date() %}
         Ce projet est terminé.<br>
         {{validated|length+terminated|length+marked|length}} participants.
