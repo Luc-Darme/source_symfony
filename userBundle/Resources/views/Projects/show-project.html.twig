@@ -12,7 +12,7 @@
 <div class="soustitre"> Du {{proj.startdate|date("m-d-Y")}} au {{proj.enddate|date("m-d-Y")}}. {{proj.address}} </div>
 
 <div> {{proj.description}} </div>
-
+<div> Responsable du projet: {%for resp in proj.responsibles%}{{resp.user|printName}} {%endfor%}</div>
 
 <div>
 {%set validated = proj.PAByStatus('VALIDATED') %}
