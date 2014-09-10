@@ -14,6 +14,19 @@
 	<h1>{{asso.associationName}}</h1>
 	<div class="soustitre"> {{asso.location}} </div>
 	{{asso.description}}
-
+<p>
+{%if asso.members|length ==0 %}
+Cette association n'a pas de membres.
+{%else%}
+	Membres de cette associations: 
+	<ul>
+	{%for membre in asso.members %}
+		{%if membre.user.privacyLevel != 2 %}
+		<li>membre.user|printName</li>
+		{%endif%}
+	{%endfor%}
+	</ul>
+{%endif%}
+</p>
 </div>
 {% endblock %}
