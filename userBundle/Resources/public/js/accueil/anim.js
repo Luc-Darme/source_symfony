@@ -73,11 +73,11 @@ var windowHeight = $window.height();
 	
 
 	
-function newPos($el, windowHeight, scrollpos, vel, vf){
+function newPos($el, windowHeight, scrollpos, vel, origin){
 	var x = $el.css('backgroundPosition').slice(0,$el.css('backgroundPosition').indexOf(' ')).trim();
-	var baseunit = windowHeight;
-//	alert(baseunit);
-	return x  + ' ' + (  vf + (scrollpos - baseunit) * vel * 100 /baseunit )  + "%"; // adjuster start
+//	var baseunit = windowHeight;
+//	alert((scrollpos - origin) * vel);
+	return x  + ' ' + (  (scrollpos - origin) * (vel-1)  )  + "px"; // adjuster start
 }
 	
 	
@@ -85,11 +85,11 @@ function Move(){
     var pos = $window.scrollTop();
 //	alert(newPos($banproj, windowHeight, pos, 300, 200));
 //   $banproj.css('backgroundPosition', '' + newPos($banproj, windowHeight, pos, -0.95, 58.8 ));
-   $wordproj.css('backgroundPosition', '' + newPos($wordproj, windowHeight, pos, -1.35 , 105));
+   $wordproj.css('backgroundPosition', '' + newPos($wordproj, windowHeight, pos, 0.2 , 1460));
 //   $banreseau.css('backgroundPosition', '' + newPos($banreseau, windowHeight, pos, -0.95, 140+58.8  ));
-   $wordreseau.css('backgroundPosition', '' + newPos($wordreseau, windowHeight, pos, -1.35 , 195+105 ));
+   $wordreseau.css('backgroundPosition', '' + newPos($wordreseau, windowHeight, pos, 0.2 , 2625 ));
 //   $baneclore.css('backgroundPosition', '' + newPos($baneclore, windowHeight, pos, -0.95, 280+58.8  ));
-   $wordeclore.css('backgroundPosition', '' + newPos($wordeclore, windowHeight, pos, -1.35 , 367+130 ));
+   $wordeclore.css('backgroundPosition', '' + newPos($wordeclore, windowHeight, pos, 0.2 , 3940 ));
 }
 
 $window.resize(function(){
@@ -155,7 +155,7 @@ $("#foccarousel").carouFredSel({
 	},
 	items		: {
 		visible		: 1,
-		height		: 280,
+		height		: 372,
 	}
 });
 
