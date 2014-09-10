@@ -173,7 +173,7 @@ ecloreuser_contact:
     
 ecloreuser_sitemap:
     pattern: /plan-du-site
-    defaults: { _controller: FrameworkBundle:Template:template, template:'ecloreuserBundle:Static:en-construction.html.twig' }
+    defaults: { _controller: FrameworkBundle:Template:template, template:'ecloreuserBundle:Static:sitemap.html.twig' }
     
 ecloreuser_mentions:
     pattern:  /mentions-legales
