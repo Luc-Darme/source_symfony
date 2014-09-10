@@ -22,7 +22,7 @@ Cette association n'a pas de membres.
 	<ul>
 	{%for membre in asso.members %}
 		{%if membre.user.privacyLevel != 2 %}
-		<li>membre.user|printName</li>
+		<li>{{membre.user|printName}}</li>
 		{%endif%}
 	{%endfor%}
 	</ul>
