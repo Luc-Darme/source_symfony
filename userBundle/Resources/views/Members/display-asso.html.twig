@@ -18,7 +18,7 @@
 {%if asso.members|length ==0 %}
 Cette association n'a pas de membres.
 {%else%}
-	Membres de cette associations: 
+	Membres de cette association: 
 	<ul>
 	{%for membre in asso.members %}
 		{%if membre.user.privacyLevel != 2 %}
