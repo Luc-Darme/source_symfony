@@ -16,7 +16,7 @@ class AssoEditType extends AbstractType
         ->add('associationName', 'text', array('label' => " Nom de l'association :"))
         ->add('description','textarea', array('label' => " Quelles sont les activités de votre association ?"))
         ->add('location', 'text',  array('attr' => array('class'=>'addressPickerInput') , 'label' => "Adresse de l'association") )
-        ->add('headshot', new ImageType(), array('required'=>false , 'label' => "Logo de l'association"))
+        ->add('headshot', new ImageType(), array('required'=>false, , 'label' => "Logo de l'association"))
         ->add('save', 'submit')
     ;
   }
