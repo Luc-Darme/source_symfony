@@ -17,7 +17,7 @@
 
 <link rel="stylesheet" href="{{ asset('bundles/ecloreuser/css/lambda/menu.css')}}" type="text/css" />
         <link rel="stylesheet" href="{{ asset('bundles/ecloreuser/css/accueil/accueil.css')}}" type="text/css" />
-	    <link rel="stylesheet" href="{{ asset('bundles/ecloreuser/css/lambda/footer.css')}}" type="text/css" />
+	    <link rel="stylesheet" href="{{ asset('bundles/ecloreuser/css/accueil/footer.css')}}" type="text/css" />
 <link rel="stylesheet" href="{{ asset('bundles/ecloreuser/css/accueil/content.css')}}" type="text/css" />
 
 </head>
@@ -149,6 +149,27 @@
 	
 			<div class="fillbanner">			
 			</div>
+			
+			
+			<article id="focus">
+					
+			 	<div id="foccarousel">
+				<div id="foccarousel">
+					{%for post in posts %}
+                        {%if post.pictures|length >0 %}
+                            <div class="elfoccarousel">
+                                <img src="{{app.request.basepath}}/{{ post.pictures|first.getWebPath }}" alt="Image 1 du focus"> </img>
+                                <div class="elfoccarousel_banner">{{post.title}}</div>
+                            </div>
+                        {%endif%}
+                    {%endfor%}
+				</div> 
+				</div>
+				
+				<div class="clearfix"></div>
+
+		</article>
+			
 		<article id="actualite">
 
 			 <h2> Les actualités du réseau </h2>
@@ -172,25 +193,9 @@
 		</div>
 			 
 		</article>
-		<article id="focus">
 		
-		 <div id="focuscarousel"> 
-			 	
-				<div id="foccarousel">
-					{%for post in posts %}
-                        {%if post.pictures|length >0 %}
-                            <div class="elfoccarousel">
-                                <img src="{{app.request.basepath}}/{{ post.pictures|first.getWebPath }}" alt="Image 1 du focus"> </img>
-                                <div class="elfoccarousel_banner">{{post.title}}</div>
-                            </div>
-                        {%endif%}
-                    {%endfor%}
-				</div> 
-				<div class="clearfix"></div>
-			</div>
-					
-				
-		</article>
+		
+
 		
 		<!-- <article class="filactu">
 			 <h2> Fil Twitter</h2>
@@ -248,7 +253,7 @@
 
 </div>
    
-	<footer class="bleu" style='bottom:-502%'>
+	<footer class="vert" style=''>
 		<a href="https://plus.google.com/u/0/108771494758848918220?
 		rel=author" style="display:hidden;"></a>
 		

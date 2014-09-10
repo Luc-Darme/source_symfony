@@ -155,7 +155,7 @@ $("#foccarousel").carouFredSel({
 	},
 	items		: {
 		visible		: 1,
-		height		: 372,
+		height		: 390,
 	}
 });
 
