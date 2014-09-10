@@ -20,7 +20,7 @@ Aucun jeune n'est inscrit dans cette institution.
 	<ul>
 	{%for membre in inst.youngs %}
 		{%if membre.user.privacyLevel != 2 %}
-		<li>membre.user|printName</li>
+		<li>{{membre.user|printName}}</li>
 		{%endif%}
 	{%endfor%}
 	</ul>
@@ -34,7 +34,7 @@ Aucun membre n'est inscrit dans cette institution.
 	<ul>
 	{%for membre in inst.members %}
 		{%if membre.user.privacyLevel != 2 %}
-		<li>membre.user|printName</li>
+		<li>{{membre.user|printName}}</li>
 		{%endif%}
 	{%endfor%}
 	</ul>
