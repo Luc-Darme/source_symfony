@@ -34,6 +34,13 @@ class AssoMController extends Controller
             return $this->redirect($this->generateUrl('ecloreuser_home'));
             }
             
+    if($user->hasRole('ROLE_TBC')){
+        $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Votre profil doit être validé par le réseau avant de pouvoir effectuer cette action. Il devrait l\'être rapidement.'); 
+            return $this->redirect($this->generateUrl('ecloreuser_home'));
+    }
+            
     $form = $this->container->get('form.factory')->create(new AssoEditType(), $asso); 
     
     if('POST' === $request->getMethod()) {
