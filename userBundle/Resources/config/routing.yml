@@ -113,19 +113,19 @@ instm_displayYoung:
 # young
         
 young_apply:
-    pattern:  /young/apply/{id}
+    pattern:  /jeune/candidater/{id}
     defaults: { _controller: ecloreuserBundle:Young:apply }
     requirements:
         id:  \d+
         
 young_manage:
-    pattern:  /young/manage-application/{id}
+    pattern:  /jeune/gerer-candidature/{id}
     defaults: { _controller: ecloreuserBundle:Young:manageApplication }
     requirements:
         id:  \d+   
 
 young_projects:
-    pattern:  /young/projets/
+    pattern:  /jeune/projets/
     defaults: { _controller: FrameworkBundle:Template:template, template:'ecloreuserBundle:Young:projects.html.twig' }
         
 # admin
