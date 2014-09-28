@@ -38,6 +38,23 @@ class TimelineListener
     $complement = $actionManager->findOrCreateComponent($event->getPA()->getProject());
     $action = $actionManager->create($subject, 'apply', array('complement' => $complement));
     $actionManager->updateAction($action);
+    //send email email-newPA.html.twig
+    /*
+    $template = $this->twig->loadTemplate('ecloreuserBundle:AssoM:email-newPA.html.twig');
+    $subject = $template->renderBlock('subject', array('project'=>$event->getPA()->getProject()));
+    $htmlBody = $template->renderBlock('body_html', array('project'=>$event->getPA()->getProject()));
+
+    $resps_emails = []
+    foreach($event->getPA()->getProject()->getResponsibles() as $resp)
+        $resps_emails[]=$resp->getUser()->getEmail();
+        
+    $message = \Swift_Message::newInstance()
+        ->setSubject($subject)
+        ->setFrom('reseau.eclore@gmail.com')
+        ->setTo($resps_emails)
+        ->setBody($htmlBody, 'text/html');
+    $this->container->get('mailer')->send($message);
+    */
     }
     
     public function onRejectedPA(PAEvent $event)
@@ -88,10 +105,15 @@ class TimelineListener
     public function onPendingValidation(Event $event)
     {
      $message = \Swift_Message::newInstance()
-    ->setSubject('du nouveau à valider!')
-    ->setFrom('reseau.eclore@gmail.com')
-    ->setTo('reseau.eclore@gmail.com')
-    ->setBody("Il y a du nouveau <a href='http://www.reseau-eclore.org/admin'>dans la partie validation</a> !");
+    $template = $this->twig->loadTemplate('ecloreuserBundle:Admin:email-pending-validation.html.twig');
+    $subject = $template->renderBlock('subject');
+    $htmlBody = $template->renderBlock('body_html');
+
+    $message = \Swift_Message::newInstance()
+        ->setSubject($subject)
+        ->setFrom('reseau.eclore@gmail.com')
+        ->setTo('reseau.eclore@gmail.com')
+        ->setBody($htmlBody, 'text/html');
     $this->container->get('mailer')->send($message);
     }
 
