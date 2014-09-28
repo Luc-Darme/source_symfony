@@ -14,8 +14,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use eclore\userBundle\Entity\Notification;
 use eclore\userBundle\Timeline\TimelineEvents;
 use eclore\userBundle\Timeline\MarkedEvent;
-use eclore\userBundle\Timeline\NewProjectEvent;
 use eclore\userBundle\Timeline\PAEvent;
+use Symfony\Component\EventDispatcher\Event;
 
 class AssoMController extends Controller
 {   
@@ -191,7 +191,9 @@ class AssoMController extends Controller
                 $this->get('session')->getFlashBag()->add(
                 'notice',
                 'Le projet a été correctement créé! Il est soumis à validation.');
-                
+                //event dispatcher
+                $event = new Event();
+                $this->container->get('event_dispatcher')->dispatch(TimelineEvents::onPendingValidation, $event);
                 return $this->redirect($this->generateUrl('assom_manageProject', 
                 array('id'=>$project->getId())));
             }
