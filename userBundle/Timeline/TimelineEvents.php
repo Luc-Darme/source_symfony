@@ -23,6 +23,6 @@ final class TimelineEvents
     // young:to young's inst instM and young from inst OK
   const onNewUser = 'ecloreuser.timeline.new_user';
     // when something needs to be validated by admin, send an email
-  const pendingValidation = 'ecloreuser.timeline.pending_validation';
+  const onPendingValidation = 'ecloreuser.timeline.pending_validation';
     
 }
