@@ -138,6 +138,7 @@ services:
             - { name: kernel.event_listener, event: ecloreuser.timeline.marked_young, method: onMarkedYoung }
             - { name: kernel.event_listener, event: ecloreuser.timeline.marked_project, method: onMarkedProject }
             - { name: kernel.event_listener, event: ecloreuser.timeline.new_user, method: onNewUser }
+            - { name: kernel.event_listener, event: ecloreuser.timeline.pending_validation, method: onPendingValidation }
 
     ecloreuser.admin.news_post:
         class: eclore\userBundle\Admin\NewsPostAdmin
