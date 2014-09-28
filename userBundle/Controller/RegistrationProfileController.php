@@ -9,6 +9,7 @@ use eclore\userBundle\Entity\AssociationMember;
 use eclore\userBundle\Entity\InstitutionMember;
 use eclore\userBundle\Timeline\TimelineEvents;
 use eclore\userBundle\Timeline\NewUserEvent;
+use Symfony\Component\EventDispatcher\Event;
 
 class RegistrationProfileController extends Controller
 {   
@@ -92,9 +93,6 @@ class RegistrationProfileController extends Controller
                     $user->addRole("ROLE_INSTM");
                     $em->persist($user);
                     $em->flush();
-                    $this->get('session')->getFlashBag()->add(
-                'notice',
-                'Votre profil a été correctement créé!');
                     // Generate new token with new roles
                     $token = new \Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken(
                       $user,
@@ -109,6 +107,9 @@ class RegistrationProfileController extends Controller
                     $this->get('session')->getFlashBag()->add(
                     'notice',
                     'Votre profil a correctement été créé!');
+                    //event dispatcher
+                $event = new Event();
+                $this->container->get('event_dispatcher')->dispatch(TimelineEvents::onPendingValidation, $event);
                     return $this->redirect($this->generateUrl('ecloreuser_home'));
                 }
             }
@@ -123,9 +124,6 @@ class RegistrationProfileController extends Controller
                     $user->addRole("ROLE_ASSOM");
                     $em->persist($user);
                     $em->flush();
-                    $this->get('session')->getFlashBag()->add(
-                'notice',
-                'Votre profil a été correctement créé!');
                     // Generate new token with new roles
                     $token = new \Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken(
                       $user,
@@ -140,6 +138,9 @@ class RegistrationProfileController extends Controller
                     $this->get('session')->getFlashBag()->add(
                     'notice',
                     'Votre profil a correctement été créé!');
+                    //event dispatcher
+                $event = new Event();
+                $this->container->get('event_dispatcher')->dispatch(TimelineEvents::onPendingValidation, $event);
                     return $this->redirect($this->generateUrl('ecloreuser_home'));
                 }
             }
