@@ -40,7 +40,7 @@ class TimelineListener
     $actionManager->updateAction($action);
     //send email email-newPA.html.twig
     /*
-    $template = $this->twig->loadTemplate('ecloreuserBundle:AssoM:email-newPA.html.twig');
+    $template = $this->container->get('twig')->loadTemplate('ecloreuserBundle:AssoM:email-newPA.html.twig');
     $subject = $template->renderBlock('subject', array('project'=>$event->getPA()->getProject()));
     $htmlBody = $template->renderBlock('body_html', array('project'=>$event->getPA()->getProject()));
 
@@ -105,7 +105,7 @@ class TimelineListener
     public function onPendingValidation(Event $event)
     {
      $message = \Swift_Message::newInstance()
-    $template = $this->twig->loadTemplate('ecloreuserBundle:Admin:email-pending-validation.html.twig');
+    $template = $this->container->get('twig')->loadTemplate('ecloreuserBundle:Admin:email-pending-validation.html.twig');
     $subject = $template->renderBlock('subject');
     $htmlBody = $template->renderBlock('body_html');
 
