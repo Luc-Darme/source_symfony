@@ -7,6 +7,48 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class InstMController extends Controller
 {   
+    
+    public function editInstAction($id, Request $request)
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+            $repository = $em->getRepository('ecloreuserBundle:Institution');
+            $inst = $repository->find($id);
+            
+        if(!$inst || !$user->getInstM()->getInstitutions()->contains($inst)){
+            $this->get('session')->getFlashBag()->add(
+                'notice',
+                'Vous n \'êtes pas concerné par cette page!');
+            return $this->redirect($this->generateUrl('ecloreuser_home'));
+            }
+            
+    if($user->hasRole('ROLE_TBC')){
+        $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Votre profil doit être validé par le réseau avant de pouvoir effectuer cette action. Il devrait l\'être rapidement.'); 
+            return $this->redirect($this->generateUrl('ecloreuser_home'));
+    }
+            
+    $form = $this->container->get('form.factory')->create(new InstEditType(), $inst); 
+    
+    if('POST' === $request->getMethod()) {
+        $form->bind($request);     
+            if ($form->isValid()) { 
+                $this->getDoctrine()->getManager()->persist($asso);
+                $this->getDoctrine()->getManager()->flush();
+                $this->get('session')->getFlashBag()->add(
+                'notice',
+                'L\'institution a été correctement mise à jour!');
+                return $this->redirect($this->generateUrl('displayInst', 
+                array('id'=>$inst->getId())));
+            }
+        }
+        
+        
+    return $this->render('ecloreuserBundle:InstM:edit-inst.html.twig',
+        array('form' => $form->createView()));
+    }
+    
     public function displayHomeAction()
     {
         $user = $this->get('security.context')->getToken()->getUser();
