@@ -84,4 +84,15 @@ class TimelineListener
     $action = $actionManager->create($subject, 'registered', array('complement' => $complement));
     $actionManager->updateAction($action);
     }
+    
+    public function onPendingValidation(Event $event)
+    {
+     $message = \Swift_Message::newInstance()
+    ->setSubject('du nouveau à valider!')
+    ->setFrom('reseau.eclore@gmail.com')
+    ->setTo('reseau.eclore@gmail.com')
+    ->setBody("Il y a du nouveau <a href='http://www.reseau-eclore.org/admin'>dans la partie validation</a> !");
+    $this->container->get('mailer')->send($message);
+    }
+
 }
