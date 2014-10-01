@@ -51,6 +51,7 @@ function deleteMarkers() {
   setAllMap(null);
   markers = [];
   infowindows = [];
+  previousOpen=-1;
 }
 
 function codeAddress(address) {
