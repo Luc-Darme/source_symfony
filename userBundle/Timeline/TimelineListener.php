@@ -3,6 +3,7 @@
 namespace eclore\userBundle\Timeline;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\DependencyInjection\Container;
+use Symfony\Component\EventDispatcher\Event;
 
 class TimelineListener
 {
@@ -102,12 +103,12 @@ class TimelineListener
     $actionManager->updateAction($action);
     }
     
-    public function onPendingValidation(NewProjectEvent $event)
+    public function onPendingValidation(Event $event)
     {
      $message = \Swift_Message::newInstance();
     $template = $this->container->get('twig')->loadTemplate('ecloreuserBundle:Admin:email-pending-validation.html.twig');
-    $subject = $template->renderBlock('subject');
-    $htmlBody = $template->renderBlock('body_html');
+    $subject = $template->renderBlock('subject', array('subject' => 'subject'));
+    $htmlBody = $template->renderBlock('body_html',array('body_html' => 'body_html'));
 
     $message = \Swift_Message::newInstance()
         ->setSubject($subject)
