@@ -29,7 +29,7 @@ class ProjectAdmin extends Admin
             ->add('description')
             ->add('projectName')
             ->add('required')
-            ->add('investmentRequired', 'choice', array('choices'=>$this->container->getParameter('investmentRequired')))
+            ->add('investmentRequired', 'choice', array('choices'=>$this->getConfigurationPool()->getContainer()->getParameter('investmentRequired')))
             ->add('projectApplications', 'entity', array('class'=>'ecloreuserBundle:ProjectApplication',
             'property'=>'id', 'multiple'=>true, 'required'=>false))
             ->add('labels', 'entity', array('class' => 'eclore\userBundle\Entity\ProjectLabels'))
@@ -95,7 +95,7 @@ class ProjectAdmin extends Admin
             ->add('description')
             ->add('projectName')
             ->add('required')
-            ->add('investmentRequired', 'choice', array('choices'=>$this->container->getParameter('investmentRequired')))
+            ->add('investmentRequired', 'choice', array('choices'=>$this->getConfigurationPool()->getContainer()->getParameter('investmentRequired')))
             ->add('projectApplications', 'entity', array('class'=>'ecloreuserBundle:ProjectApplication',
             'property'=>'id', 'multiple'=>true, 'required'=>false))
             ->add('labels', 'entity', array('class' => 'eclore\userBundle\Entity\ProjectLabels'))
