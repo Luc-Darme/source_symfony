@@ -104,7 +104,7 @@ class TimelineListener
     
     public function onPendingValidation(Event $event)
     {
-     $message = \Swift_Message::newInstance()
+     $message = \Swift_Message::newInstance();
     $template = $this->container->get('twig')->loadTemplate('ecloreuserBundle:Admin:email-pending-validation.html.twig');
     $subject = $template->renderBlock('subject');
     $htmlBody = $template->renderBlock('body_html');
