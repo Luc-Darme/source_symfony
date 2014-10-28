@@ -24,7 +24,7 @@ class RegistrationProfileController extends Controller
             ->setMethod('POST')
             ->add('institutions', 'entity', array('class'=>'ecloreuserBundle:Institution',
             'property'=>'institutionName', 'multiple'=>true, 'label'=>'A quelle(s) institution(s) es-tu rattaché ?', 'empty_data'=>'Aucune.'))
-            ->add('quality', 'textarea', array('mapped'=>false, 'label'=>'Que fais-tu actuellement (scolairement) ?'))
+            ->add('quality', 'textarea', array('mapped'=>false, 'label'=>'Tes activités'))
             ->add('submitYoung', 'submit', array('label'=>'Finir l\'inscription'));
            
         // create institutionmember registration forms
