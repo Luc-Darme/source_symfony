@@ -70,9 +70,8 @@ blockquote, q {
 }
 
 
-html {
-height:5027px;
-margin :0;
+html{
+margin:0;
 font-family: Constantia ;
 }
 
@@ -81,6 +80,7 @@ font-family: Constantia ;
 
 body
 {
+background:url('../../images/fond.png') no-repeat ; 
 margin:0;
 height:100%;
 min-width:1000px;
@@ -90,7 +90,7 @@ h1
 {
 color:#F6F7F1;
 font-family: Constantia, serif;
-font-size:2.2em;
+font-size:2em;
 font-weight:normal;
 }
 
@@ -142,38 +142,71 @@ text-decoration: none;
 
 
 #wrapper {
-	background:url('../../images/fond_accueil.png') no-repeat ; 
+	
 	color: black;
-    margin: 0 0 0 0;
+    margin-top:1em;
     padding: 0% 0 0% 0;
 	height: 100%;
     background-size: 100% 100%;
 	width:100%;
+}
+/*  Include a minimum height depending on the height of the screen*/
+@media screen and (min-height: 700px) {
+#wrapper {
+	min-height: 600px;
+}
+}
+@media screen and (max-height:700px) {
+#wrapper {
+	min-height: 500px;
+}
+}
 
+.decohaut {
+width:100%;
+height:10px;
+}
+.decohaut  .bleu{
+background:url('../../images/fond_bleu.png') no-repeat fixed;
+background-size: 100px 285px;
+}
+.decohaut  .vert{
+background:url('../../images/fond_vert.png') no-repeat fixed;
+background-size: 100px 285px;
+}
 
+.decohaut  .orange{
+background:url('../../images/fond_orange.png') no-repeat fixed;
+background-size: 100px 285px;
 }
 
 
+#container {
+position:relative;
+
+}
+
+/* ----------------------------------------------------------------------------------------------------------------*/
+/* -------------------------   WORD CLOUD                               ------------------------------------------*/
+/* ----------------------------------------------------------------------------------------------------------------*/
 
 #wordcloud
 {
 /*	background:url('images/fond.png')  no-repeat fixed; */
 	color: #fff;
-    margin: -10px 0 0 0;
     padding: 0% 0 0% 0;
-	height: 1407px	;
     background-size: cover;
 	z-index:0;
 }
 #cloud
 {
 position:absolute;
-top:10%;
-left:15%;
-width : 70% ;
+top:15%;
+left:18%;
+width : 72% ;
 min-width: 700px ;
 min-height: 400px;
-height: 80% ;
+height: 77% ;
 z-index:0;
 }
 
@@ -207,20 +240,6 @@ background:url('../../images/accueil_wordcloud_vert.png') no-repeat ;
 background-size: 100% 100%;
 }
 
-#slogan{
-position:absolute;
-width:30%;
-right:2%;
-top:80%;
-margin-top:2em;
-text-align:right;
-}
-
-#slogan h1 {
-color: rgb(90,90,90);
-font-size:2em;
-font-style: italic;
-}
 
 
 #navarea{
@@ -259,76 +278,189 @@ background-color: transparent;
 z-index:2;
 }
 
+/* ----------------------------------------------------------------------------------------------------------------*/
+/* -------------------------   ONGLETS ET DESCRIPTIONS       ------------------------------------------*/
+/* ----------------------------------------------------------------------------------------------------------------*/
 
-.banner{
-	height: 199px;
-	background-size: 100% 10%;
-	z-index: 10 ;
-	position:absolute;
-	width: 100%;
-	left:0%;
+
+
+.onglets, .descriptions{
+	vertical-align:top;
+	display:inline-block;
 }
-.word {
-	height: 1500px;
-	z-index: 10 ;
-	position:absolute;
-	right:0%;
+.onglets{
+	margin-left:-10px;
+	width:60px;
+}
+.descriptions{
+	min-width:150px;
+	
+}
+@media screen and (min-height: 500px) {
+  .onglets {
+	height: 400px;
+  }
+  .descriptions {
+	height: 396px;
+  }
+}
+@media screen and (max-height: 500px) {
+  .onglets {
+	height: 250px;
+	width:50px;
+	z-index:-1;
+  }
+  .descriptions {
+	height: 245.5px;
+	z-index:2;
+  }
+}
+
+.descr,.onglet {
+	width:100%;
+	height:33%;
+	display:block;
+	z-index:100;
+  }	
+  
+a.onglet:visited {
+text-decoration: none;
+outline :none;
+  }	
+
+.onglet.bleu{
+  	background:url('../../images/onglet_bleu.png') no-repeat  0 0 / 100% 100%;
+  }	
+.onglet.vert{
+  	background:url('../../images/onglet_vert.png') no-repeat 0 0 / 100% 100%;
+  }	
+.onglet.orange{
+  	background:url('../../images/onglet_orange.png') no-repeat 0 0 / 100% 100%;
+  }	  
+.descr.bleu{
+  	background:url('../../images/barre_bleu.png') no-repeat 0 0 / 100% 100%;
+  }	
+.descr.vert{
+  	background:url('../../images/barre_vert.png') no-repeat 0 0 / 100% 100%;
+  }	
+.descr.orange{
+  	background:url('../../images/barre_orange.png') no-repeat 0 0 / 100% 100%;
+  }	  
+
+.textedescr{
+color:#F6F7F1;
+font-family: Constantia, serif;
+font-size:1.2em;
+font-weight:normal;
+padding:10%;
+padding-top:26%
+}
+  
+
+/*---------------- Modif --------------------- */ 
+  
+
+.descr.vert, .descr.orange{
+  	display:none;
+  }	
+.descr{
+	height:100%;
+}
+.textedescr{
+	display:none;
+}
+
+.descriptions{
+	min-width:23px;
+	margin-left:-5px;
+}
+
+.onglets {
+margin-left : -4px;
+}
+
+
+@media screen and (min-width: 1200px) {
+#projet, #reseau ,  #eclore
+{
+	width:1100px;
+}
+
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+#projet, #reseau ,  #eclore
+{
+	width:900px;
+}
+}
+
+@media screen and (max-width: 1000px) {
+#projet, #reseau ,  #eclore
+{
+	width:700px;
+}
+}
+
+  #projet, #reseau ,  #eclore
+{
+	vertical-align:top;
+	display:none;
+	z-index:10;
+
+}
+  #projet
+{
+	margin-right:-1px;
+	height:730px;
+	background:url('../../images/fond_bleu.png') no-repeat 0 0 / 100% 100%;
+}
+  #reseau
+{
+	height:1000px;
+   background:url('../../images/fond_orange.png') no-repeat 0 0 / 100% 100%;
+}
+  #eclore
+{
+	height:900px;
+	 background:url('../../images/fond_vert.png') no-repeat 0 0 / 100% 100%;
+}
+
+
+/*---------------- End Modif --------------------- */ 
+  
+  
+.banner{
+	height: 132px;
+	width: 100%;
+	margin-bottom:10px;
 }
 
 .textbanner{
-	position:absolute;
-	top:22%;
 	margin-right:15%;
 	margin-left:15%;
-	z-index:40;
-	width: 70%
+	width: 70%;
+	padding-top:50px;
+	text-align:center;
+}
+
+.textbanner h1{
+ margin-top:0;
 }
 
 #banner_eclore .textbanner{
-	top:0px;
+	padding-top:33px;
 }
-.content{
-    
+.content{   
     background-size: cover;
 	z-index: 0 ;
 	height: 1200px;
 	margin: auto;
-	background-color: rgba(255,255,255,0.5);
-	border: 1px solid #ccc;
 	overflow:hidden;
 	position: relative;
 }
 	
-@media screen and (min-width: 1400px) {
-  .content {
-	width: 1200px;
-  }
-  
-  .word {
-	width:200px
-  }
-  
-    #word_projet{
-		background:url('../../images/mot_projet.png') no-repeat fixed;
-	background-size: 150px 470px;
-	
-  }
-  
-  #word_reseau
-{
-	background:url('../../images/mot_reseau.png') no-repeat fixed;
-	background-size: 150px 470px;
-}
-  
-  
-}
-@media screen and (min-width: 1100px) and (max-width: 1400px) {
-  .content {
-	width: 900px;
-  }
-    .word {
-	width:140px
-  }
+
   
   #word_projet{
   	background:url('../../images/mot_projet.png') no-repeat fixed;
@@ -358,7 +490,6 @@ z-index:2;
 {
 	background:url('../../images/barre_bleu.png') no-repeat ; 
 	color: #fff;
-	top : 1381px ;
 	background-position: 0px -10%;
 	background-size: 100% 100%;
 
@@ -370,11 +501,7 @@ z-index:2;
 	z-index: 20 ;
 }
 
-#projet
-{
-/*	background:url('images/fond_bleu.png') no-repeat fixed;*/
-	color: #fff;
-}
+
 #banner_reseau
 {
 	background:url('../../images/barre_orange.png') no-repeat ;
@@ -391,17 +518,7 @@ z-index:2;
 
 }
 
-#reseau
-{
-/*	background:url('images/fond_orange.png') no-repeat fixed; 
-	color: #560905;
-	position: relative;
-	background-color: rgba(255,255,255,0);
-	border: 0px solid #ccc;
-   margin: 0 5%;
-   width : 90%; */
-   height:1186px;
-}
+
 #banner_eclore	
 {
 	background:url('../../images/barre_vert.png') no-repeat ; 
@@ -419,10 +536,6 @@ z-index:2;
 	right:90%; 
 	top:3150px;
 }
-#eclore
-{
-/*	background:url('images/fond_vert.png')  no-repeat fixed; */
-height:1228px;
-}
+
 
 

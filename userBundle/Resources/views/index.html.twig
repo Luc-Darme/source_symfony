@@ -42,47 +42,39 @@
 			<a href="http://reseau-eclore.tumblr.com/" target="_blank"> <img src="{{ asset('bundles/ecloreuser/images/icone_tumblr.png')}}" alt="Lien Tumblr"> </a>
 		</div>
 	</div>
-	</header>
 
+	</header>
+	<a href="{{path('ecloreuser_homepage')}}" id="logo">
+		<img  src="{{ asset('bundles/ecloreuser/images/logo.png')}}" alt="Logo de l'association" style="width:100%"> 
+	</a>
+	<div style='clear:both'></div>
 <!--    Le corps du site ----------------------------------------------------------------------------------------------------------------------------->
 <div id="wrapper"> 
 
-   <section id="wordcloud">   
-		<div id="logo">
-			<img  src="{{ asset('bundles/ecloreuser/images/logo.png')}}" alt="Logo de l'association" style="width:100%"> 
-		</div>
-		<div style='clear:both'></div>
 	
-		<div id="cloud" >
-				<div id="navarea">
-					<a id="area_projet"  href="#projet" title="Lien vers les projets" ></a>
-					<a id="area_reseau" href="#reseau" title="Lien vers le réseau"></a>
-					<a id="area_eclore" href="#eclore" title="Lien vers la présentation du réseau Eclore"></a>		
-				</div>
-					<div id="cloud_bkg"> </div>
-			 		<div class="cloud_f" id="cloud_bleu"> </div>
-					<div class="cloud_f" id="cloud_vert"> </div>
-					<div class="cloud_f" id="cloud_orange"> </div>
+	  <section id="cloud">   	
+		<div id="navarea">
+			<a id="area_projet"  href="#" title="Lien vers les projets" ></a>
+			<a id="area_reseau" href="#" title="Lien vers le réseau"></a>
+			<a id="area_eclore" href="#" title="Lien vers la présentation du réseau Éclore"></a>		
 		</div>
-		<div id="slogan" >
-			<h1> Bienvenue sur le site du réseau Éclore !</h1>
-		</div>
+			<div id="cloud_bkg"> </div>
+	 		<div class="cloud_f" id="cloud_bleu"> </div>
+			<div class="cloud_f" id="cloud_vert"> </div>
+			<div class="cloud_f" id="cloud_orange"> </div>
    </section>
-
-
-	<div id="banner_projet" class="banner">
-		<div class="textbanner">
-			<h1>Trouvez ou déposez un projet !</h1>
-		</div>
-    </div>
-	<div id="word_projet" class="word">
-	</div>	
 	
 	
-	<div id="projet" class="content">
-
-		<div class="fillbanner">			
+	<div id="container" style="width:210px;"> 
+	
+   <section id="projet" class="content">
+   
+		<div id="banner_projet" class="banner">
+			<div class="textbanner">
+				<h1>Trouvez ou déposez un projet !</h1>
 			</div>
+		</div>
+
 
 		<article id="inscription">
 			 <h2> Rejoignez le réseau </h2>
@@ -134,26 +126,21 @@
 			</div>
 		</article>
 	
-	</div>
+	</section>
   
 
-	<div id="banner_reseau" class="banner">
-		<div class="textbanner">
-			<h1>Découvrez la vie du réseau</h1>
-		</div>
-    </div>
-	<div id="word_reseau" class="word">
-	</div>
-
-	<section id="reseau" class="content">
-	
-			<div class="fillbanner">			
+  	<section id="reseau" class="content">
+		<div id="banner_reseau" class="banner">
+			<div class="textbanner">
+				<h1>Découvrez la vie du réseau</h1>
 			</div>
+		</div>
+
+
 			
-			
-			<article id="focus">
+		<article id="focus">
 					
-			 	<div id="foccarousel">
+		 	<div id="foccarousel">
 				<div id="foccarousel">
 					{%for post in posts %}
                         {%if post.pictures|length >0 %}
@@ -164,9 +151,9 @@
                         {%endif%}
                     {%endfor%}
 				</div> 
-				</div>
+			</div>
 				
-				<div class="clearfix"></div>
+			<div class="clearfix"></div>
 
 		</article>
 			
@@ -201,26 +188,21 @@
 			 <h2> Fil Twitter</h2>
 		</article> -->
 		<article class="filactu" id="tweet" >
-			 
+		
 		</article>
 
    </section>
    
 
 
-	<div id="banner_eclore" class="banner">
-		<div class="textbanner">
-			<h1>Le réseau Éclore veut développer l'engagement des jeunes comme acteurs du milieu associatif</h1>
-		</div>
-    </div>
-	<div id="word_eclore" class="word">
-	</div>
-	
-	
-	
-   <section id="eclore" class="content">
-			<div class="fillbanner" style="height : 18%">			
+    <section id="eclore" class="content">
+		<div id="banner_eclore" class="banner">
+			<div class="textbanner">
+				<h1>Le réseau Éclore veut développer l'engagement des jeunes comme acteurs du milieu associatif</h1>
 			</div>
+		</div>
+
+
 		<article id="videopres" style="color:#fff; font-size:1.5em; text-align:center;">
 			<p > Vidéo de présentation (à venir) ;) </p>
 			<img src="{{ asset('bundles/ecloreuser/images/exovo_sueur.png')}}" style="width : 15% ; display: inline;">
@@ -251,9 +233,44 @@
 		</article>
    </section>
 
+   
+   
+   <section class="descriptions">   
+		<div class="descr bleu" >	
+			<div class="textedescr">
+				
+			</div>
+		</div>
+		<div class="descr orange" >		
+			<div class="textedescr">
+				
+			</div>
+		</div>
+		<div class="descr vert" >	
+			<div class="textedescr">
+				
+			</div>
+		</div>
+	</section>
+	
+	<section class="onglets">   
+		<a href="#" class="onglet bleu" >		
+		</a>
+		<a href="#" class="onglet orange" >		
+		</a>
+		<a href="#" class="onglet vert" >	
+		</a>
+	</section>
+	
+ 
+   
+   </div>
+   
+   
+   
 </div>
    
-	<footer class="vert" style=''>
+	<footer class="bleu" style=''>
 		<a href="https://plus.google.com/u/0/108771494758848918220?
 		rel=author" style="display:hidden;"></a>
 		

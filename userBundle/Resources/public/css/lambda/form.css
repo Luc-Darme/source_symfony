@@ -9,12 +9,12 @@ vertical-align:top;
 margin-bottom: 1em;
 }
 .coldroite   input {
-background-color : #8BAC68 ;
+background-color : #60912c ;
 width:90%;
 margin-right:5%;
 color: #fff;
-border-radius : 5px;
-height: 1.8em;
+/*border-radius : 5px;*/
+height: 2.2em;
 margin-top:1em;
 margin-bottom:1em;
 font-size:1em;
@@ -28,6 +28,7 @@ background-color : #679C2F ;
 
 .coldroite    input:hover{
 background-color : #679C2F ; 
+box-shadow:1px 1px 4px 2px #ccc;
 }
 .coldroite    select:hover{
 background-color : #679C2F ; 
@@ -40,11 +41,11 @@ background-color : #679C2F ;
 margin-top:1em;
 }
 .coldroite   select {
-background-color : #8BAC68 ;
-margin-left:5%;
+background-color : #60912c ;
+margin-right:5%;
 color: #fff;
-border-radius : 5px;
-height: 2em;
+/*border-radius : 5px;*/
+height: 2.2em;
 margin-top:1em;
 margin-bottom:0.5em;
 padding-top:0.2em;
@@ -57,7 +58,7 @@ padding-left:1%;
 background-color :#679C2F;
 margin-right:5%;
 color: #fff;
-border-radius : 5px;
+/*border-radius : 5px;*/
 height: 2em;
 padding-top:0.2em;
 font-size:1em;
@@ -153,6 +154,12 @@ margin:auto;
 #eclore_user_instedittype_headshot_file{
  width:60%;
  margin-left: 5em;
+}
+
+
+#fos_choix_type_membre{
+margin-left: 2em;
+width:20em;
 }
 
 /*  -------------------------------------- ---------------------------------------------------------------------------------------------------------- */
