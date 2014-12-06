@@ -504,7 +504,8 @@ width:48%;
 margin-top: 1em;
 width:100%;
 padding-bottom:2em;
-background: url(../../images/trait_separation_long.png) no-repeat 0 5.5em / 100% 5%;
+background: url(../../images/trait_separation_long.png) no-repeat 0 5.5em;
+ background-size: 100% 5%;
 }
 
 #map-canvas, #results {
@@ -568,7 +569,8 @@ color: #053027  ;
 }
 
 .colgauche.display_association>div{
-background: url(../../images/trait_separation_long.png) no-repeat 0 0em / 100% 2%;
+background: url(../../images/trait_separation_long.png) no-repeat 0 0em ;
+ background-size: 100% 2%;
 padding-top:1em;
 }
 

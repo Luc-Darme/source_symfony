@@ -10,13 +10,16 @@ z-index:300;
 }
 
 .menu.bleu {
- background: url("../../images/menu_fond_bleu.png") no-repeat  0 0 / 100% 3.7em ;
+ background: url("../../images/menu_fond_bleu.png") no-repeat  0 0 ;
+ background-size: 100% 3.7em;
 }
 .menu.vert {
- background: url("../../images/menu_fond_vert.png") no-repeat  0 0 / 100% 3.7em ;
+ background: url("../../images/menu_fond_vert.png") no-repeat  0 0 ;
+  background-size: 100% 3.7em;
 }
 .menu.orange {
- background: url("../../images/menu_fond_orange.png") no-repeat  0 0 / 100% 3.7em ;
+ background: url("../../images/menu_fond_orange.png") no-repeat  0 0 ;
+  background-size: 100% 3.7em;
 }
 
 .menu ul

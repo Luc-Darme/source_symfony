@@ -73,6 +73,7 @@ blockquote, q {
 html{
 margin:0;
 font-family: Constantia ;
+zoom: 110%;
 }
 
 
@@ -144,7 +145,7 @@ text-decoration: none;
 #wrapper {
 	
 	color: black;
-    margin-top:1em;
+    margin-top:2em;
     padding: 0% 0 0% 0;
 	height: 100%;
     background-size: 100% 100%;
@@ -183,7 +184,7 @@ background-size: 100px 285px;
 
 #container {
 position:relative;
-
+/*min-height:850px;*/
 }
 
 /* ----------------------------------------------------------------------------------------------------------------*/
@@ -329,22 +330,28 @@ outline :none;
   }	
 
 .onglet.bleu{
-  	background:url('../../images/onglet_bleu.png') no-repeat  0 0 / 100% 100%;
+  	background:url('../../images/onglet_bleu.png') no-repeat  0 0 ;
+	background-size: 100% 100%;
   }	
 .onglet.vert{
-  	background:url('../../images/onglet_vert.png') no-repeat 0 0 / 100% 100%;
+  	background:url('../../images/onglet_vert.png') no-repeat 0 0 ;
+	background-size: 100% 100%;
   }	
 .onglet.orange{
-  	background:url('../../images/onglet_orange.png') no-repeat 0 0 / 100% 100%;
+  	background:url('../../images/onglet_orange.png') no-repeat 0 0 ;
+	background-size: 100% 100%;
   }	  
 .descr.bleu{
-  	background:url('../../images/barre_bleu.png') no-repeat 0 0 / 100% 100%;
+  	background:url('../../images/barre_bleu.png') no-repeat 0 0 ;
+	background-size: 100% 100%;
   }	
 .descr.vert{
-  	background:url('../../images/barre_vert.png') no-repeat 0 0 / 100% 100%;
+  	background:url('../../images/barre_vert.png') no-repeat 0 0 ;
+	background-size: 100% 100%;
   }	
 .descr.orange{
-  	background:url('../../images/barre_orange.png') no-repeat 0 0 / 100% 100%;
+  	background:url('../../images/barre_orange.png') no-repeat 0 0;
+	background-size: 100% 100%;
   }	  
 
 .textedescr{
@@ -415,18 +422,21 @@ margin-left : -4px;
   #projet
 {
 	margin-right:-1px;
-	height:730px;
-	background:url('../../images/fond_bleu.png') no-repeat 0 0 / 100% 100%;
+	height:850px;
+	background:url('../../images/fond_bleu.png') no-repeat 0 0 
+	background-size: 100% 100%;
 }
   #reseau
 {
 	height:1000px;
-   background:url('../../images/fond_orange.png') no-repeat 0 0 / 100% 100%;
+   background:url('../../images/fond_orange.png') no-repeat 0 0 ;
+   	background-size: 100% 100%;
 }
   #eclore
 {
 	height:900px;
-	 background:url('../../images/fond_vert.png') no-repeat 0 0 / 100% 100%;
+	 background:url('../../images/fond_vert.png') no-repeat 0 0 ;
+	 background-size: 100% 100%;
 }
 
 
