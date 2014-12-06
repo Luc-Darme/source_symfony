@@ -44,6 +44,7 @@ var $cloud = $('#cloud');
 var $container = $('#container');
 var $footer = $('footer');
 
+var $descrmod = $('div.descr.mod');
 var $descrbleu = $('div.descr.bleu');
 var $descrvert = $('.descr.vert');
 var $descrorange = $('.descr.orange');
@@ -63,11 +64,9 @@ var isdeveloped = 0;
  // Animating the word cloud and the onglet-------------------------
 
  function colorOngletIn(col){
-	 var descr = ".descr."+ col;
-    $('.descr').css('display','none');
-	$(descr).css('display','inline-block');
-};
-
+	 var descr = ".descr.mod";
+	 ChangeCol($(descr),col)
+}
 
 function colorIn(n){
 	var fore = $('.cloud_f')[n];
@@ -82,19 +81,30 @@ function colorIn(n){
  
    //When mouse rolls over
    $('#area_projet').mouseover(
-		function(){colorIn(0);colorOngletIn('bleu');}
+		function(){colorOngletIn('bleu');colorIn(0);}
 	); 
 	$('#area_reseau').mouseover(
-		function(){colorIn(2);colorOngletIn('orange');}
+		function(){colorOngletIn('orange');colorIn(2);}
 	); 
 	$('#area_eclore').mouseover(
-		function(){colorIn(1);colorOngletIn('vert');}
+		function(){colorOngletIn('vert');colorIn(1);}
+	); 
+	$ongletbleu.mouseover(
+		function(){colorOngletIn('bleu');colorIn(0);}
+	); 
+	$ongletorange.mouseover(
+		function(){colorOngletIn('orange');colorIn(2);}
+	); 
+	$ongletvert.mouseover(
+		function(){colorOngletIn('vert');colorIn(1);}
 	); 
     //When mouse is removed
    $('#navarea a').mouseout(function(){
 	colorOut() ;
     });
- 
+	$onglets.mouseout(function(){
+	colorOut() ;
+    });
 
 
 
@@ -122,7 +132,7 @@ function devpanel(col) {
 	if (col == 'bleu'){$element = $proj; $descrel = $descrbleu;};
 	if (col == 'orange'){$element = $reseau; $descrel = $descrorange;};
 	if (col == 'vert'){$element = $eclore; $descrel = $descrvert};
-
+	$descrmod.css('display','none');
 	$descrbleu.css('display','none');$descrvert.css('display','none');$descrorange.css('display','none');
 	$descrel.css('display','inline-block');
 	if (isdeveloped == 0) {
@@ -137,6 +147,7 @@ function devpanel(col) {
 		isdeveloped = 1;
 		}
 	if (isdeveloped == 1) {
+		$descrmod.css('display','none');
 		$eclore.css('display','none');$proj.css('display','none');$reseau.css('display','none');
 		$element.css('display','inline-block');
 		ChangeCol($footer,col);ChangeCol($('.menu'),col);swaponglet(col);LauchCarouProj();LauchCarouActu();

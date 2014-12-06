@@ -360,8 +360,11 @@ padding-top:26%
 /*---------------- Modif --------------------- */ 
   
 
-.descr.vert, .descr.orange{
+.descr{
   	display:none;
+  }	
+.descr.mod{
+  	display:inline-block;
   }	
 .descr{
 	height:100%;
