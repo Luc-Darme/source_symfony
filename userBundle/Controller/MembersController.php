@@ -15,8 +15,9 @@ class MembersController extends Controller
 
 public function displayMemberAction($id)
     {
-        $user = $this->get('security.context')->getToken()->getUser();
-        $em = $this->getDoctrine()->getManager();
+    $securityContext = $this->container->get('security.context'); 
+    
+    $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('ecloreuserBundle:User');
         $user2 = $repository->find($id);
 
@@ -28,11 +29,15 @@ public function displayMemberAction($id)
                 'Ce profil n\'existe pas');
             return $this->redirect($this->generateUrl('ecloreuser_home'));
         }
+    $contactRequested=False;
+    if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
+        
+        $user = $this->get('security.context')->getToken()->getUser();
         
         //check que une demande de contact n'existe pas deja.
         $rep = $em->getRepository('ecloreuserBundle:Notification');
         $contactRequested = $rep->contactRequested($user, $user2);
-    
+    }
     return $this->render('ecloreuserBundle:Members:display-member.html.twig', array('u'=>$user2, 'contactRequested'=>$contactRequested));
     }
     
