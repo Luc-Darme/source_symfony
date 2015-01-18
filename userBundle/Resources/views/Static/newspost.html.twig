@@ -9,9 +9,11 @@
 
 
 <div class="colgauche">
-	{%for pic in post.pictures %}
-	<img src="{{app.request.basepath}}/{{ pic.getWebPath }}" width='100%'>
-{%endfor%}			
+	{#{%for pic in post.pictures %}#}
+	 {%if post.pictures|length >0 %}
+	<img src="{{app.request.basepath}}/{{ post.pictures|first.getWebPath }}" width='100%'>
+	{%endif%}
+	{#{%endfor%}#}			
 </div>
 
 
