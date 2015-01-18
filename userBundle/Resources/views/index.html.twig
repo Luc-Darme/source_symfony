@@ -145,7 +145,7 @@
 					{%for post in posts %}
                         {%if post.pictures|length >0 %}
                             <div class="elfoccarousel">
-                                <img src="{{app.request.basepath}}/{{ post.pictures|first.getWebPath }}" alt="Image 1 du focus"> </img>
+                                <img src="{% if post.pictures|length >1 %} {{app.request.basepath}}/{{ post.pictures[1].getWebPath }} {% else %} {{app.request.basepath}}/{{ post.pictures|first.getWebPath }}  {% endif %} " alt="Image 1 du focus"> </img>
                                 <div class="elfoccarousel_banner">{{post.title}}</div>
                             </div>
                         {%endif%}
