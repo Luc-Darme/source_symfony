@@ -34,6 +34,15 @@ class StaticController extends Controller
         array('post' => $post));
     
     }
-
+public function displayNewsPostsAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('ecloreuserBundle:NewsPost');
+        $posts = $repository->getCurrentNewsPosts();
+            
+        return $this->render('ecloreuserBundle:Static:newsposts.html.twig',
+        array('posts' => $posts));
+    
+    }
     
 }
